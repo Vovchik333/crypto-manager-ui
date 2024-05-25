@@ -1,0 +1,15 @@
+.main-footer {
+    padding: 0 0 30px;
+    display: flex;
+    justify-content: center;
+    height: 20px;
+}
+
+.author-info {
+    width: 250px;
+    color: var(--element-color);
+}
+
+.author-info > a {
+    color: var(--element-color);
+}
