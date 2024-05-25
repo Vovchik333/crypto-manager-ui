@@ -1,0 +1,12 @@
+.main-header {
+    padding: 10px 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.bars-solid {
+    margin: 0 20px;
+    width: 30px;
+    height: 30px;
+}
