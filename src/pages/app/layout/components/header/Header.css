@@ -1,0 +1,48 @@
+.main-header {
+    padding: 10px 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.bars-solid,
+.xmark {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.menu {
+    background-color: var(--back-color);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80%;
+    width: 0;
+    padding: 20px 0px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.xmark {
+    align-self: end;
+    margin-right: 10px;
+}
+
+.menu-item {
+    cursor: pointer;
+    align-self: start;
+    text-decoration: none;
+    text-align: center;
+    width: 270px;
+    padding: 10px;
+    color: var(--btn-color);
+    border-bottom: var(--btn-color) solid 1px;
+}
+
+.menu-item:hover {
+    color: var(--element-color);
+}
