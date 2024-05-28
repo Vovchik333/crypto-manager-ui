@@ -15,7 +15,6 @@ const SignIn = () => {
     const handlePassword = (event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value);
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        console.log({ email, password });
         
         dispatch(signIn({ email, password }));
         navigate(AppRoute.PORTFOLIOS);

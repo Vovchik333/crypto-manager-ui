@@ -10,7 +10,6 @@ type Props = {
 const PublicRoute: React.FC<Props> = ({ children }) => {
     const user = useAppSelector(state => state.auth.user);
     const hasUser = Boolean(user);
-    console.log(`public ${user}`);
     
     return (
         hasUser ? (

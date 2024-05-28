@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../../../hooks/hooks';
-import { AppRoute } from '../../../../../common/enums/enums';
-import { signOut } from '../../../../../store/auth/actions';
-import barsSolid from '../../../../../assets/icons/bars-solid.svg';
-import xmark from '../../../../../assets/icons/xmark.svg';
+import { useAppDispatch, useAppSelector } from '../../../../hooks/hooks';
+import { AppRoute } from '../../../../common/enums/enums';
+import { signOut } from '../../../../store/auth/actions';
+import barsSolid from '../../../../assets/icons/bars-solid.svg';
+import xmark from '../../../../assets/icons/xmark.svg';
 import './Header.css';
 
 const Header: React.FC = () => {

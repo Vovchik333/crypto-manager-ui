@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { AppRoute } from "../../../common/enums/enums";
 import { Home } from "../../home/Home";
-import { Layout } from "../layout/Layout";
+import { Layout } from "../../layout/Layout";
 import { SignUp } from "../../auth/SignUp";
 import { SignIn } from "../../auth/SignIn";
 import { PublicRoute } from "../../../components/public-route/PublicRoute";

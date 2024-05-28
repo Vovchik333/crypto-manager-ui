@@ -1,0 +1,24 @@
+.portfolios-page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.portfolios {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    list-style: none;
+    gap: 10px;
+    border: var(--btn-color) solid 1px;
+    border-radius: 5px;
+}
+
+.portfolio {
+    text-align: center;
+    padding: 5px;
+    color: var(--element-color);
+    border: var(--btn-color) solid 1px;
+    border-radius: 5px;
+}

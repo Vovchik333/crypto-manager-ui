@@ -10,8 +10,6 @@ type Props = {
 const PrivateRoute: React.FC<Props> = ({ children }) => {
     const user = useAppSelector(state => state.auth.user);
     const hasUser = Boolean(user);
-
-    console.log(`private ${user}`);
     
     return (
         hasUser ? (
