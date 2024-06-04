@@ -1,0 +1,17 @@
+.normal-btn {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--accent-color);
+    background-color: var(--main-color);
+    border: var(--border-color) solid 2px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.normal-btn:hover {
+    color: var(--main-color);
+    background-color: var(--accent-color);
+}
