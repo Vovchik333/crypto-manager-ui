@@ -1,19 +1,20 @@
 .main-header {
-    padding: 10px 25px;
+    flex: 0 0 auto;
+    padding: 0 25px;
     height: 60px;
     display: flex;
     align-items: center;
+    border-bottom: var(--border-color) solid 1px;
 }
 
-.bars-solid,
-.xmark {
+.icon {
     cursor: pointer;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 .menu {
-    background-color: var(--back-color);
+    background-color: var(--main-color);
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -21,10 +22,9 @@
     height: 80%;
     width: 0;
     padding: 20px 0px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
     display: flex;
     flex-direction: column;
+    z-index: 2;
 }
 
 .xmark {
@@ -36,13 +36,15 @@
     cursor: pointer;
     align-self: start;
     text-decoration: none;
-    text-align: center;
+    height: 40px;
     width: 270px;
     padding: 10px;
-    color: var(--btn-color);
-    border-bottom: var(--btn-color) solid 1px;
+    color: var(--primary-text-color);
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .menu-item:hover {
-    color: var(--element-color);
+    color: var(--accent-color);
 }

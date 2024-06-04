@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import './Home.css'
 import { AppRoute } from '../../common/enums/enums';
+import { Button } from '../../components/button/Button';
+import './Home.css';
 
 const Home = () => {
     return (
@@ -11,7 +12,7 @@ const Home = () => {
             <section className="home-section roboto-regular">
                 <span>Gain good investment management experience. The app has many analytical tools that will help you monitor the state of your crypto portfolio.</span>
                 <Link className='sign-in-link' to={AppRoute.SIGN_IN}>
-                    <button className='small-btn'>Sign in</button>
+                    <Button className='sign-in-link-btn normal-btn'>Sign in</Button>
                 </Link>
             </section>
         </main>

@@ -4,6 +4,9 @@ import { AppRoute } from '../../../../common/enums/enums';
 import { signOut } from '../../../../store/auth/actions';
 import barsSolid from '../../../../assets/icons/bars-solid.svg';
 import xmark from '../../../../assets/icons/xmark.svg';
+import signInIcon from '../../../../assets/icons/sign-in.svg';
+import signOutIcon from '../../../../assets/icons/sign-out.svg';
+import portfolioIcon from '../../../../assets/icons/portfolio.svg';
 import './Header.css';
 
 const Header: React.FC = () => {
@@ -38,17 +41,26 @@ const Header: React.FC = () => {
 
     return (
         <header className='main-header'>
-            <img className='bars-solid' src={barsSolid} alt="bars-solid" onClick={openMenu} />
+            <img className='bars-solid icon' src={barsSolid} alt="bars-solid-icon" onClick={openMenu} />
             <nav id='side-menu' className='menu roboto-regular'>
-                <img className='xmark' src={xmark} alt="xmark" onClick={closeMenu} />
+                <img className='xmark icon' src={xmark} alt="xmark-icon" onClick={closeMenu} />
                 {
                     hasUser ? (
                         <>
-                            <Link className='menu-item' to={AppRoute.PORTFOLIOS}>Portfolios</Link>
-                            <div className='menu-item' onClick={handleSignOut}>Sign Out</div>
+                            <Link className='menu-item' to={AppRoute.PORTFOLIOS}>
+                                <img className='icon' src={portfolioIcon} alt="portfolio-icon" />
+                                <span>Portfolios</span>
+                            </Link>
+                            <div className='menu-item' onClick={handleSignOut}>
+                                <img className='icon' src={signOutIcon} alt="sign-out-icon" />
+                                <span>Sign Out</span>
+                            </div>
                         </>
                     ) : (
-                        <Link className='menu-item' to={AppRoute.SIGN_IN}>Sign In</Link>
+                        <Link className='menu-item' to={AppRoute.SIGN_IN}>
+                                <img className='icon' src={signInIcon} alt="sign-in-icon" />
+                                <span>Sign In</span>
+                        </Link>
                     )
                 }
             </nav>

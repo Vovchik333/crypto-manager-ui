@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--element-color);
+    color: var(--primary-text-color);
     font-size: 64px;
 }
 
@@ -25,10 +25,15 @@
     flex-direction: column;
     align-items: center;
     gap: 50px;
-    color: var(--description-color);
+    color: var(--accent-color);
     font-size: 20px;
 }
 
 .sign-in-link {
     text-decoration: none;
+}
+
+.sign-in-link-btn {
+    height: 50px;
+    width: 100px;
 }

@@ -22,27 +22,25 @@
     gap: 7px;
 }
 
-.auth-form > input {
-    padding: 10px;
-    border: var(--element-color) solid 2px;
-    border-radius: 15px;
-    color: var(--back-color);
-    font-size: 16px;
-}
-
 .auth-form-submit {
+    width: 100px;
+    height: 50px;
     margin-top: 10px;
     align-self: center;
 }
 
 .auth-label {
-    color: var(--description-color);
+    color: var(--primary-text-color);
 }
 
 .sign-link {
-    color: var(--element-color);
+    color: var(--primary-text-color);
 }
 
 .sign-link > * {
-    color: var(--element-color);
+    color: var(--primary-text-color);
+}
+
+.sign-link > *:hover {
+    color: var(--accent-color);
 }
