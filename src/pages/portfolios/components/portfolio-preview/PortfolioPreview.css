@@ -1,0 +1,13 @@
+.portfolio-preview {
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.portfolio-preview:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
