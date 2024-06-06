@@ -1,0 +1,190 @@
+[
+    { 
+        "id": "0", 
+        "name": "Main", 
+        "totalSum": 100.0,
+        "assets": [
+            { 
+                "id": "10", 
+                "name": "Cosmos", 
+                "ticker": "ATOM", 
+                "price": 8.655555, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 100.0, 
+                "holdings": 11.628
+            },
+            { 
+                "id": "11", 
+                "name": "Polkadot", 
+                "ticker": "DOT", 
+                "price": 7.2, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 200.0, 
+                "holdings": 21.778
+            },
+            { 
+                "id": "21", 
+                "name": "Wormhole", 
+                "ticker": "W", 
+                "price": 0.6, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 300.0, 
+                "holdings": 500
+            }
+        ]
+    },
+    { 
+        "id": "1", 
+        "name": "Binance", 
+        "totalSum": 120.0,
+        "assets": [
+            { 
+                "id": "10", 
+                "name": "Bitcoin", 
+                "ticker": "BTC", 
+                "price": 67890.63, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 100.0, 
+                "holdings": 11.628
+            },
+            { 
+                "id": "11", 
+                "name": "Polkadot", 
+                "ticker": "DOT", 
+                "price": 7.2, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 200.0, 
+                "holdings": 21.778
+            },
+            { 
+                "id": "21", 
+                "name": "Wormhole", 
+                "ticker": "W", 
+                "price": 0.6, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 300.0, 
+                "holdings": 500
+            }
+        ]
+    },
+    { 
+        "id": "2", 
+        "name": "Bybit", 
+        "totalSum": 80.0,
+        "assets": [
+            { 
+                "id": "10", 
+                "name": "Cosmos", 
+                "ticker": "ATOM", 
+                "price": 8.6, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 100.0, 
+                "holdings": 11.628
+            },
+            { 
+                "id": "11", 
+                "name": "Osmosis", 
+                "ticker": "OSMO", 
+                "price": 0.8, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 200.0, 
+                "holdings": 21.778
+            },
+            { 
+                "id": "21", 
+                "name": "Wormhole", 
+                "ticker": "W", 
+                "price": 0.6, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 300.0, 
+                "holdings": 500
+            }
+        ]
+    },
+    { 
+        "id": "3", 
+        "name": "OKX", 
+        "totalSum": 200.0,
+        "assets": [
+            { 
+                "id": "10", 
+                "name": "Cosmos", 
+                "ticker": "ATOM", 
+                "price": 8.6, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 100.0, 
+                "holdings": 11.628
+            },
+            { 
+                "id": "11", 
+                "name": "Polkadot", 
+                "ticker": "DOT", 
+                "price": 7.2, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 200.0, 
+                "holdings": 21.778
+            },
+            { 
+                "id": "21", 
+                "name": "Dymension", 
+                "ticker": "DYM", 
+                "price": 3.0, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 300.0, 
+                "holdings": 500
+            },
+            { 
+                "id": "11", 
+                "name": "Polkadot", 
+                "ticker": "DOT", 
+                "price": 7.2, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 200.0, 
+                "holdings": 21.778
+            },
+            { 
+                "id": "11", 
+                "name": "Polkadot", 
+                "ticker": "DOT", 
+                "price": 7.2, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 200.0, 
+                "holdings": 21.778
+            },
+            { 
+                "id": "11", 
+                "name": "Polkadot", 
+                "ticker": "DOT", 
+                "price": 7.2, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 200.0, 
+                "holdings": 21.778
+            },
+            { 
+                "id": "11", 
+                "name": "Polkadot", 
+                "ticker": "DOT", 
+                "price": 7.2, 
+                "avgPrice": 9.1, 
+                "currentProfit": 20, 
+                "invested": 200.0, 
+                "holdings": 21.778
+            }
+        ]
+    }
+]
