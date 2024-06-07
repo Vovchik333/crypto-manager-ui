@@ -1,7 +1,7 @@
 import { Asset } from "../asset/asset.type";
 
 type Portfolio = {
-    id: string;
+    id?: string;
     name: string;
     totalSum: number;
     assets: Asset[];

@@ -11,6 +11,7 @@ const PortfolioPreview: React.FC<Props> = ({
     onClick
 }) => {
     return (
+        Boolean(portfolio) && 
         <div className="portfolio-preview" onClick={onClick}>
             <strong className="portfolio-name">{portfolio.name}</strong>
             <small className="portfolio-total-sum">${portfolio.totalSum}</small>
