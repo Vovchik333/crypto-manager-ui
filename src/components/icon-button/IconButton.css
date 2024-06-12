@@ -1,0 +1,23 @@
+.icon-button {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icon-button > *:first-child {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-label {
+    color: var(--primary-text-color);
+}
+
+.icon-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

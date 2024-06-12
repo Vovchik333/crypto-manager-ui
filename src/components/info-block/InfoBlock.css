@@ -1,0 +1,13 @@
+.info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-block-top-row {
+    color: var(--primary-text-color);
+}
+
+.info-block-bottom-row {
+    color: var(--secondary-text-color);
+}
