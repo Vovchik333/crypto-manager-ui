@@ -9,7 +9,6 @@
 .portfolios-selection {
     top: 20px;
     position: sticky;
-    z-index: 1;
     width: 100%;
     min-width: 200px;
     max-width: 250px;
@@ -19,9 +18,17 @@
     gap: 10px;
 }
 
+.portfolios-count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
 .portfolios {
     padding: 0;
     margin: 0;
+    padding-right: 15px;
     overflow: scroll;
     display: flex;
     flex-direction: column;

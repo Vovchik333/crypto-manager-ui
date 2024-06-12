@@ -1,13 +1,14 @@
-import { Asset } from "../../../../common/types/asset/asset.type";
+import { InfoBlock } from "../../../../components/components";
+import { Asset } from "../../../../common/types/types";
 import './AssetTable.css';
 
 type Props = {
     assets: Asset[];
 }
 
-const AssetTable = ({
+const AssetTable: React.FC<Props> = ({
     assets
-}: Props) => {
+}) => {
     const assetColumns = [
         'Asset', 'Price', 'Avg buy price', 
         'Current profit', 'Invested', 'Holdings'
@@ -37,27 +38,12 @@ const AssetTable = ({
                         {assets.map(asset => {
                             return (
                                 <tr className="asset-data-row asset-row" key={asset.id}>
-                                    <td>
-                                        <div className="asset-two-fields">
-                                            <span>{asset.ticker}</span>
-                                            <small>{asset.name}</small>
-                                        </div>
-                                    </td>
+                                    <td><InfoBlock topRow={asset.ticker} bottomRow={asset.name}/></td>
                                     <td>${asset.price.toFixed(4)}</td>
                                     <td>{asset.avgPrice.toFixed(4)}</td>
-                                    <td>
-                                        <div className="asset-two-fields">
-                                            <span>{getUsdProfit(asset)}</span>
-                                            <small>{getPercentageProfit(asset)}</small>
-                                        </div>
-                                    </td>
+                                    <td><InfoBlock topRow={getUsdProfit(asset)} bottomRow={getPercentageProfit(asset)}/></td>
                                     <td>${asset.invested.toFixed(2)}</td>
-                                    <td>
-                                        <div className="asset-two-fields">
-                                            <span>${(asset.holdings * asset.price).toFixed(2)}</span>
-                                            <small>{asset.holdings.toFixed(2)} {asset.ticker}</small>
-                                        </div>
-                                    </td>
+                                    <td><InfoBlock topRow={`$${(asset.holdings * asset.price).toFixed(2)}`} bottomRow={`${asset.holdings.toFixed(2)} ${asset.ticker}`}/></td>
                                 </tr>
                             );
                         })}

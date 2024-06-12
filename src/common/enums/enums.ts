@@ -2,5 +2,7 @@ export {
     AppRoute
 } from '../enums/app/app-route';
 export {
-    ButtonType
+    ButtonType,
+    IconColor,
+    IconName
 } from './components/components';

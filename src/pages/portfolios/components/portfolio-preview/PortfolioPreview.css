@@ -1,13 +1,40 @@
+.portfolio-preview-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .portfolio-preview {
     color: var(--secondary-color);
     cursor: pointer;
     padding: 10px;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .portfolio-preview:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-list-actions-wrapper {
+    position: relative;
+}
+
+.portfolio-list-actions {
+    position: absolute;
+    right: 30px;
+    top: 0;
+    z-index: 2;
+    background-color: rgb(29, 37, 45);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--primary-text-color);
+}
+
+.portfolio-list-actions > * {
+    width: 100%;
 }

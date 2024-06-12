@@ -1,13 +1,20 @@
-import { createPortfolio } from '../../../../store/portfolio/actions';
-import { Portfolio } from '../../../../common/types/portfolio/portfolio.type';
-import { Modal } from '../../../../components/modal/Modal';
-import xmarkIcon from '../../../../assets/icons/xmark.svg';
-import './PortfolioForm.css';
-import { Button } from '../../../../components/button/Button';
-import { ButtonType } from '../../../../common/enums/enums';
-import { Input } from '../../../../components/input/Input';
-import { ChangeEvent, useState } from 'react';
+import { 
+    ChangeEvent, 
+    useState 
+} from 'react';
 import { useAppDispatch } from '../../../../hooks/hooks';
+import { 
+    Button, 
+    IconButton,
+    Input,
+    Modal
+} from '../../../../components/components';
+import { 
+    ButtonType, 
+    IconName 
+} from '../../../../common/enums/enums';
+import { createPortfolio } from '../../../../store/portfolio/actions';
+import './PortfolioForm.css';
 
 type Props = {
     hidden: boolean;
@@ -42,7 +49,7 @@ const PortfolioForm: React.FC<Props> = ({
             <div className='portfolio-form-wrapper roboto-regular'>
                 <header className='portfolio-form-header'>
                     <h3>Creating a new portfolio</h3>
-                    <img className='xmark' src={xmarkIcon} alt="xmark-icon" onClick={onClose} />
+                    <IconButton className='icon-button' name={IconName.XMARK} onClick={onClose}></IconButton>
                 </header>
                 <form className="portfolio-form" method="post" action="" onSubmit={handleOnSubmit}>
                     <div className='portfolio-inputs'>
