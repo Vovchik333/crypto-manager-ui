@@ -28,8 +28,7 @@ const Portfolios: React.FC = () => {
     const [selectedPortfolioId, setSelectedPortfolioId] = useState<string | null>(null);
     const [portfolioIdForUpdate, setPortfolioIdForUpdate] = useState<string | null>(null);
     const [editPortfolioMode, setEditPortfolioMode] = useState<boolean>(false);
-    const [createPortfolioVisibility, setCreatePortfolioVisibility] = useState<boolean>(true);
-    const [updatePortfolioVisibility, setUpdatePortfolioVisibility] = useState<boolean>(true);
+    const [createPortfolioVisibility, setCreatePortfolioVisibility] = useState<boolean>(false);
     const [showPortfolioActionsId, setShowPortfolioActionsId] = useState<string>('');
 
     const overviewPortfolios = {
@@ -42,22 +41,19 @@ const Portfolios: React.FC = () => {
     };
 
     const handleOnOpenCreatePortfolio = () => {
-        setCreatePortfolioVisibility(false);
-    }
-
-    const handleOnCloseCreatePortfolio = () => {
         setCreatePortfolioVisibility(true);
     }
 
+    const handleOnCloseCreatePortfolio = () => {
+        setCreatePortfolioVisibility(false);
+    }
+
     const handleOnOpenUpdatePortfolio = (id: string) => {
-        return () => {
-            setUpdatePortfolioVisibility(false);
-            setPortfolioIdForUpdate(id);
-        }
+        return () => setPortfolioIdForUpdate(id);
     }
 
     const handleOnCloseUpdatePortfolio = () => {
-        setUpdatePortfolioVisibility(true);
+        setPortfolioIdForUpdate(null);
     }
 
     const handleOnEditPortfolioMode = () => {
@@ -69,7 +65,7 @@ const Portfolios: React.FC = () => {
     }
 
     const selectedPortfolio = portfolios.find(portfolio => portfolio.id === selectedPortfolioId) as Portfolio;
-    const portfolioForUpdate = portfolios.find(portfolio => portfolio.id === portfolioIdForUpdate);
+    const portfolioForUpdate = portfolios.find(portfolio => portfolio.id === portfolioIdForUpdate) as Portfolio;
 
     useEffect(() => {
         const initPortfolios = async () => {
@@ -134,8 +130,18 @@ const Portfolios: React.FC = () => {
                     </section>
                 }
             </main>
-            <CreatePortfolio hidden={createPortfolioVisibility} onClose={handleOnCloseCreatePortfolio}/>
-            <UpdatePortfolio portfolio={portfolioForUpdate as Portfolio} hidden={updatePortfolioVisibility} onClose={handleOnCloseUpdatePortfolio}/>
+            {createPortfolioVisibility && (
+                <CreatePortfolio 
+                    onClose={handleOnCloseCreatePortfolio}
+                />
+            )}
+            {Boolean(portfolioForUpdate) && (
+                <UpdatePortfolio 
+                    portfolio={portfolioForUpdate}  
+                    onClose={handleOnCloseUpdatePortfolio}
+                />
+            )}
+            
         </>
     );
 };

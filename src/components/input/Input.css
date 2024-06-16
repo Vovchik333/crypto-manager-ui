@@ -1,6 +1,6 @@
 .normal-input {
     padding: 10px;
-    background-color: var(--main-color);
+    background-color: var(--secondary-color);;
     border: var(--border-color) solid 2px;
     border-radius: 15px;
     color: var(--primary-text-color);

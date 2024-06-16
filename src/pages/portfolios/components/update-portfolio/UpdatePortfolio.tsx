@@ -15,13 +15,11 @@ import { Portfolio } from "../../../../common/types/types";
 
 type Props = {
     portfolio: Portfolio;
-    hidden: boolean;
     onClose: () => void;
 }
 
 const UpdatePortfolio: React.FC<Props> = ({
     portfolio,
-    hidden,
     onClose
 }) => {
     const dispatch = useAppDispatch();
@@ -42,11 +40,11 @@ const UpdatePortfolio: React.FC<Props> = ({
     }
 
     return (
-        <PortfolioForm hidden={hidden} topic="Edit portfolio" onClose={onClose}>
+        <PortfolioForm hidden={false} topic="Edit portfolio" onClose={onClose}>
             <form className="update-portfolio-form" method="post" action="" onSubmit={handleOnSubmit}>
                 <div className='update-portfolio-inputs'>
                     <label className='update-portfolio-name-label' htmlFor="portfolio-name-input">New name:</label>
-                    <Input className='normal-input' id='portfolio-name-input' value={name} onChange={handleOnChangeName}></Input>
+                    <Input className='normal-input' id='portfolio-name-input' value={name} onChange={handleOnChangeName} />
                 </div>
                 <div className='update-portfolio-btn-wrapper'>
                     <Button className='update-portfolio-btn normal-btn' type={ButtonType.SUBMIT}>Update</Button>

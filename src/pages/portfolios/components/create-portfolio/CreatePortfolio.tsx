@@ -10,12 +10,10 @@ import { createPortfolio } from "../../../../store/portfolio/actions";
 import './CreatePortfolio.css';
 
 type Props = {
-    hidden: boolean;
     onClose: () => void;
 }
 
 const CreatePortfolio: React.FC<Props> = ({
-    hidden,
     onClose
 }) => {
     const dispatch = useAppDispatch();
@@ -36,7 +34,7 @@ const CreatePortfolio: React.FC<Props> = ({
     }
 
     return (
-        <PortfolioForm hidden={hidden} topic="Creating a new portfolio" onClose={onClose}>
+        <PortfolioForm hidden={false} topic="Creating a new portfolio" onClose={onClose}>
             <form className="create-portfolio-form" method="post" action="" onSubmit={handleOnSubmit}>
                 <div className='create-portfolio-inputs'>
                     <label className='create-portfolio-name-label' htmlFor="portfolio-name-input">Name:</label>

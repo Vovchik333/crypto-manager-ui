@@ -14,22 +14,18 @@ type Props = {
 }
 
 const PortfolioForm: React.FC<Props> = ({
-    hidden,
     topic,
     children,
     onClose
 }) => {
-
-
     return (
-        <Modal hidden={hidden}>
-            <div className='portfolio-form-wrapper roboto-regular'>
+        <Modal>
+            <div className='portfolio-form-wrapper'>
                 <header className='portfolio-form-header'>
                     <h3>{topic}</h3>
                     <IconButton className='icon-button' name={IconName.XMARK} onClick={onClose}></IconButton>
                 </header>
                 {children}
-
             </div>
         </Modal>
     );

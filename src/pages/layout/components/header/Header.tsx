@@ -30,9 +30,8 @@ const Header: React.FC = () => {
                 <header className='menu-header'>
                     <IconButton className='xmark icon-button' name={IconName.XMARK} onClick={handleOnClickMenu}></IconButton>
                 </header>
-
-                {
-                    hasUser ? (
+                <section>
+                    {hasUser ? (
                         <>
                             <Link className='menu-item' to={AppRoute.PORTFOLIOS}>
                                 <IconButton className='icon-button' name={IconName.COINS} label={'Portfolios'} />
@@ -45,8 +44,8 @@ const Header: React.FC = () => {
                         <Link className='menu-item' to={AppRoute.SIGN_IN}>
                             <IconButton className='icon-button' name={IconName.SIGN_IN} label={'Sign In'} />
                         </Link>
-                    )
-                }
+                    )}
+                </section>
             </nav>
         </header>
     );
