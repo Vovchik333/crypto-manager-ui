@@ -1,5 +1,6 @@
 .portfolios-page {
     width: 100%;
+    min-width: 900px;
     max-width: 2000px;
     display: flex;
     color: var(--primary-text-color);

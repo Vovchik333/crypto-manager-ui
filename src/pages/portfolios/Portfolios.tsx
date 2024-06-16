@@ -8,7 +8,8 @@ import {
 } from "../../hooks/hooks";
 import { 
     Button, 
-    IconButton 
+    IconButton, 
+    Spinner
 } from "../../components/components";
 import { 
     AssetTable, 
@@ -25,6 +26,7 @@ const Portfolios: React.FC = () => {
     const dispatch = useAppDispatch();
     const portfolios = useAppSelector(state => state.portfolio.portfolios);
 
+    const [isPageLoad, setIsPageLoad] = useState<boolean>(false);
     const [selectedPortfolioId, setSelectedPortfolioId] = useState<string | null>(null);
     const [portfolioIdForUpdate, setPortfolioIdForUpdate] = useState<string | null>(null);
     const [editPortfolioMode, setEditPortfolioMode] = useState<boolean>(false);
@@ -69,12 +71,17 @@ const Portfolios: React.FC = () => {
 
     useEffect(() => {
         const initPortfolios = async () => {
-            await dispatch(loadPortfolios());
+            await dispatch(loadPortfolios());        
             setSelectedPortfolioId(portfolios[0].id as string);
+            setIsPageLoad(true);
         }
 
         initPortfolios();
     }, []);
+
+    if (!isPageLoad) {
+        return (<Spinner />);
+    }
 
     return (
         <>
@@ -141,7 +148,6 @@ const Portfolios: React.FC = () => {
                     onClose={handleOnCloseUpdatePortfolio}
                 />
             )}
-            
         </>
     );
 };

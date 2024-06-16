@@ -10,18 +10,21 @@ type Props = {
     className?: string;
     name: ValueOf<typeof IconName>;
     color?: ValueOf<typeof IconColor>;
+    spin?: boolean;
 }
 
 const Icon: React.FC<Props> = ({
     className,
     name,
-    color = IconColor.BRIGHT_CYAN
+    color = IconColor.BRIGHT_CYAN,
+    spin = false
 }) => {
     return (
         <FontAwesomeIcon
             className={className}
             icon={iconNameToSvgIcon[name]}
             color={color}
+            spin={spin}
         />
     );
 } 

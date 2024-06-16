@@ -8,7 +8,8 @@ const IconName = {
     ELLIPSIS: 'ellipsis',
     CHECK: 'check',
     EDIT: 'edit',
-    DELETE: 'delete'
+    DELETE: 'delete',
+    SPINNER: 'spinner'
 } as const;
 
 export { IconName };

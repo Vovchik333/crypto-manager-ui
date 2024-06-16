@@ -7,6 +7,7 @@ import {
     faPen, 
     faSignIn, 
     faSignOut, 
+    faSpinner, 
     faTrash, 
     faXmark
 } from "@fortawesome/free-solid-svg-icons";
@@ -22,7 +23,8 @@ const iconNameToSvgIcon = {
     [IconName.PEN]: faPen,
     [IconName.CHECK]: faCheck,
     [IconName.EDIT]: faEdit,
-    [IconName.DELETE]: faTrash
+    [IconName.DELETE]: faTrash,
+    [IconName.SPINNER]: faSpinner
 }
 
 export { iconNameToSvgIcon };
