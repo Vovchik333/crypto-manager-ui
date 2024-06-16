@@ -1,6 +1,6 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { Portfolio } from "../../common/types/portfolio/portfolio.type";
-import { createPortfolio, deletePortfolio, loadPortfolios } from "./actions";
+import { createPortfolio, deletePortfolio, loadPortfolios, updatePortfolio } from "./actions";
 
 type State = {
     portfolios: Portfolio[];
@@ -26,6 +26,21 @@ const portfolioSlice = createSlice({
                 isAnyOf(createPortfolio.fulfilled),
                 (state, actions) => {
                     state.portfolios.push(actions.payload);
+                }
+            )
+            .addMatcher(
+                isAnyOf(updatePortfolio.fulfilled),
+                (state, actions) => {
+                    const { portfolios } = state;
+                    const index: number = portfolios.findIndex(portfolio => portfolio.id === actions.payload.id);
+
+                    if (index !== -1) {
+                        state.portfolios = [
+                            ...portfolios.slice(0, index),
+                            actions.payload,
+                            ...portfolios.slice(index + 1, portfolios.length)
+                        ];
+                    }
                 }
             )
             .addMatcher(

@@ -20,7 +20,7 @@ const IconButton: React.FC<Props> = ({
         <button className={className} type="button" onClick={onClick}>
             <Icon name={name} />
             {Boolean(label) &&
-                <span className="btn-label">{label}</span>
+                <p className="icon-btn-label">{label}</p>
             }
         </button>
     );

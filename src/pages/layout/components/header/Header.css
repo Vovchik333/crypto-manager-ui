@@ -13,17 +13,24 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 80%;
+    height: 100%;
     width: 0;
-    padding: 20px 0px;
     display: flex;
     flex-direction: column;
     z-index: 2;
+    border: none;
+}
+
+.menu-header {
+    height: 60px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
 }
 
 .xmark {
-    align-self: flex-end;
     margin-right: 10px;
+    margin-left: auto;
 }
 
 .menu-item {
@@ -31,7 +38,6 @@
     align-self: start;
     text-decoration: none;
     height: 40px;
-    width: 270px;
     padding: 10px;
     color: var(--primary-text-color);
     display: flex;
@@ -39,6 +45,12 @@
     gap: 15px;
 }
 
-.menu-item:hover {
-    color: var(--accent-color);
+#menu-toggle {
+    display: none;
+}
+
+#menu-toggle:checked ~ .menu {
+    width: 200px;
+    overflow: scroll;
+    border-right: var(--border-color) solid 1px;
 }

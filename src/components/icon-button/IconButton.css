@@ -1,12 +1,12 @@
 .icon-button {
     background-color: transparent;
+    height: 30px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     padding: 5px;
     display: flex;
     align-items: center;
-    gap: 5px;
 }
 
 .icon-button > *:first-child {
@@ -14,7 +14,9 @@
     height: 20px;
 }
 
-.btn-label {
+.icon-btn-label {
+    margin-left: 10px;
+    font-size: 16px;
     color: var(--primary-text-color);
 }
 

@@ -12,8 +12,9 @@ import {
 } from "../../components/components";
 import { 
     AssetTable, 
-    PortfolioForm, 
-    PortfolioPreview 
+    PortfolioPreview,
+    CreatePortfolio, 
+    UpdatePortfolio
 } from "./components/components";
 import { Portfolio } from "../../common/types/types";
 import { IconName } from "../../common/enums/enums";
@@ -24,9 +25,11 @@ const Portfolios: React.FC = () => {
     const dispatch = useAppDispatch();
     const portfolios = useAppSelector(state => state.portfolio.portfolios);
 
-    const [selectedPortfolio, setSelectedPortfolio] = useState<Portfolio>(portfolios[0]);
+    const [selectedPortfolioId, setSelectedPortfolioId] = useState<string | null>(null);
+    const [portfolioIdForUpdate, setPortfolioIdForUpdate] = useState<string | null>(null);
     const [editPortfolioMode, setEditPortfolioMode] = useState<boolean>(false);
-    const [visibility, setVisibility] = useState<boolean>(true);
+    const [createPortfolioVisibility, setCreatePortfolioVisibility] = useState<boolean>(true);
+    const [updatePortfolioVisibility, setUpdatePortfolioVisibility] = useState<boolean>(true);
     const [showPortfolioActionsId, setShowPortfolioActionsId] = useState<string>('');
 
     const overviewPortfolios = {
@@ -34,19 +37,30 @@ const Portfolios: React.FC = () => {
         totalSum: portfolios.reduce((acc, cur) => acc + cur.totalSum, 0)
     };
 
-    const handleSelectPortfolio = (portfolio: Portfolio) => {
-        return () => setSelectedPortfolio(portfolio);
+    const handleSelectPortfolioId = (id: string) => {
+        return () => setSelectedPortfolioId(id);
     };
 
-    const handleOnOpen = () => {
-        setVisibility(false);
+    const handleOnOpenCreatePortfolio = () => {
+        setCreatePortfolioVisibility(false);
     }
 
-    const handleOnClose = () => {
-        setVisibility(true);
+    const handleOnCloseCreatePortfolio = () => {
+        setCreatePortfolioVisibility(true);
     }
 
-    const handleOnEditPortfolio = () => {
+    const handleOnOpenUpdatePortfolio = (id: string) => {
+        return () => {
+            setUpdatePortfolioVisibility(false);
+            setPortfolioIdForUpdate(id);
+        }
+    }
+
+    const handleOnCloseUpdatePortfolio = () => {
+        setUpdatePortfolioVisibility(true);
+    }
+
+    const handleOnEditPortfolioMode = () => {
         setEditPortfolioMode(!editPortfolioMode);
     }
 
@@ -54,10 +68,16 @@ const Portfolios: React.FC = () => {
         setShowPortfolioActionsId(id);
     }
 
+    const selectedPortfolio = portfolios.find(portfolio => portfolio.id === selectedPortfolioId) as Portfolio;
+    const portfolioForUpdate = portfolios.find(portfolio => portfolio.id === portfolioIdForUpdate);
+
     useEffect(() => {
-        
-        dispatch(loadPortfolios());
-        setSelectedPortfolio(portfolios[0]);
+        const initPortfolios = async () => {
+            await dispatch(loadPortfolios());
+            setSelectedPortfolioId(portfolios[0].id as string);
+        }
+
+        initPortfolios();
     }, []);
 
     return (
@@ -72,7 +92,11 @@ const Portfolios: React.FC = () => {
                     />
                     <section className="portfolios-count">
                         <span>My portfolios ({portfolios.length})</span>
-                        <IconButton className="icon-button" name={editPortfolioMode ? IconName.CHECK : IconName.PEN} onClick={handleOnEditPortfolio}/>
+                        <IconButton 
+                            className="icon-button" 
+                            name={editPortfolioMode ? IconName.CHECK : IconName.PEN} 
+                            onClick={handleOnEditPortfolioMode}
+                        />
                     </section>
                     <ul className="portfolios">
                         {portfolios.map((portfolio) => {
@@ -82,14 +106,15 @@ const Portfolios: React.FC = () => {
                                         portfolio={portfolio} 
                                         showPortfolioActionsId={showPortfolioActionsId} 
                                         isEditMode={editPortfolioMode}
-                                        onClickPreview={handleSelectPortfolio(portfolio)}
+                                        onClickPreview={handleSelectPortfolioId(portfolio.id as string)}
                                         onClickActions={handleOnClickActions} 
+                                        onOpenUpdatePortfolio={handleOnOpenUpdatePortfolio(portfolio.id as string)}
                                     />
                                 </li>
                             );
                         })}
                     </ul>
-                    <Button className="create-portfolio-btn normal-btn" onClick={handleOnOpen}>
+                    <Button className="create-portfolio-btn normal-btn" onClick={handleOnOpenCreatePortfolio}>
                         + Create portfolio
                     </Button>
                 </aside>
@@ -97,7 +122,7 @@ const Portfolios: React.FC = () => {
                     <section className="portfolio-info">
                         <section className="stats">
                             <div className="stats-left-side">
-                                <span>{selectedPortfolio.name}</span>
+                                <p>{selectedPortfolio.name}</p>
                                 <h2>Total value: </h2>
                                 <strong>${selectedPortfolio.assets.reduce((acc, cur) => acc + (cur.holdings * cur.price), 0)}</strong>
                             </div>
@@ -109,7 +134,8 @@ const Portfolios: React.FC = () => {
                     </section>
                 }
             </main>
-            <PortfolioForm hidden={visibility} onClose={handleOnClose}></PortfolioForm>
+            <CreatePortfolio hidden={createPortfolioVisibility} onClose={handleOnCloseCreatePortfolio}/>
+            <UpdatePortfolio portfolio={portfolioForUpdate as Portfolio} hidden={updatePortfolioVisibility} onClose={handleOnCloseUpdatePortfolio}/>
         </>
     );
 };

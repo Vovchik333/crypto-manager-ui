@@ -29,6 +29,19 @@ const createPortfolio = createAsyncThunk<
     }
 );
 
+const updatePortfolio = createAsyncThunk<
+    Portfolio,
+    Partial<Portfolio>,
+    AsyncThunkConfig
+>(  
+    ActionType.UPDATE,
+    async (payload, { extra: { portfolioService } }) => {
+        const result = await portfolioService.updateOne(payload);
+        
+        return result;
+    }
+);
+
 const deletePortfolio = createAsyncThunk<
     string,
     string,
@@ -45,5 +58,6 @@ const deletePortfolio = createAsyncThunk<
 export {
     loadPortfolios,
     createPortfolio,
+    updatePortfolio,
     deletePortfolio
 }

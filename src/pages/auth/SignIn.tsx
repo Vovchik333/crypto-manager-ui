@@ -24,14 +24,14 @@ const SignIn = () => {
     return (
         <main className="auth-page">
             <div className="auth-content">
-                <Form className="auth-form roboto-regular" method="post" onSubmit={handleSubmit}>
+                <Form className="auth-form" method="post" onSubmit={handleSubmit}>
                     <label className="auth-label" htmlFor="email">Email:</label>
                     <Input id="email" className="normal-input" type="email" name="email" value={email} onChange={handleEmail} />
                     <label className="auth-label" htmlFor="password">Password:</label>
                     <Input id="password" className="normal-input" type="password" name="password" value={password} onChange={handlePassword} />
                     <Input className="auth-form-submit normal-btn" type="submit" value="Submit" />
                 </Form>
-                <span className="sign-link roboto-regular">
+                <span className="sign-link">
                     Don't have an account? <Link to={AppRoute.SIGN_UP}>Sign Up</Link>
                 </span>
             </div>

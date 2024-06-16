@@ -12,23 +12,9 @@ const Header: React.FC = () => {
     const user = useAppSelector(state => state.auth.user);
     const hasUser = Boolean(user);
 
-    const openMenu = () => {
-        const menu = document.getElementById('side-menu') as HTMLElement;
-        menu.setAttribute('style', `
-            width: 300px;
-            overflow: scroll;
-            border-right: var(--btn-color) solid 1px;
-            border-bottom: var(--btn-color) solid 1px;
-        `);
-    }
-
-    const closeMenu = () => {
-        const menu = document.getElementById('side-menu') as HTMLElement;
-        menu.setAttribute('style', `
-            width: 0;
-            overflow: hidden;
-            border: none;
-        `);
+    const handleOnClickMenu = () => {
+        const menuToggle = document.getElementById('menu-toggle') as HTMLInputElement;
+        menuToggle.checked = !menuToggle.checked;
     }
 
     const handleSignOut = async () => {
@@ -38,25 +24,26 @@ const Header: React.FC = () => {
 
     return (
         <header className='main-header'>
-            <IconButton className='icon-button' name={IconName.BARS} onClick={openMenu}></IconButton>
-            <nav id='side-menu' className='menu roboto-regular'>
-                <IconButton className='xmark icon-button' name={IconName.XMARK} onClick={closeMenu}></IconButton>
+            <input id='menu-toggle' type='checkbox' />
+            <IconButton className='icon-button' name={IconName.BARS} onClick={handleOnClickMenu}/>
+            <nav className='menu'>
+                <header className='menu-header'>
+                    <IconButton className='xmark icon-button' name={IconName.XMARK} onClick={handleOnClickMenu}></IconButton>
+                </header>
+
                 {
                     hasUser ? (
                         <>
                             <Link className='menu-item' to={AppRoute.PORTFOLIOS}>
-                                <IconButton className='icon-button' name={IconName.COINS}></IconButton>
-                                <span>Portfolios</span>
+                                <IconButton className='icon-button' name={IconName.COINS} label={'Portfolios'} />
                             </Link>
                             <div className='menu-item' onClick={handleSignOut}>
-                                <IconButton className='icon-button' name={IconName.SIGN_OUT}></IconButton>
-                                <span>Sign Out</span>
+                                <IconButton className='icon-button' name={IconName.SIGN_OUT} label={'Sign Out'} />
                             </div>
                         </>
                     ) : (
                         <Link className='menu-item' to={AppRoute.SIGN_IN}>
-                            <IconButton className='icon-button' name={IconName.SIGN_IN}></IconButton>
-                            <span>Sign In</span>
+                            <IconButton className='icon-button' name={IconName.SIGN_IN} label={'Sign In'} />
                         </Link>
                     )
                 }

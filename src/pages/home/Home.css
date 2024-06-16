@@ -16,6 +16,7 @@
     justify-content: center;
     color: var(--primary-text-color);
     font-size: 64px;
+    font-weight: 900;
 }
 
 .home-section:last-child {

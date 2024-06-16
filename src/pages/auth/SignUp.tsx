@@ -26,7 +26,7 @@ const SignUp = () => {
     return (
         <main className="auth-page">
             <div className="auth-content">
-                <Form className="auth-form roboto-regular" method="post" onSubmit={handleSubmit}>
+                <Form className="auth-form" method="post" onSubmit={handleSubmit}>
                     <label className="auth-label" htmlFor="nickname">Nickname:</label>
                     <Input id="nickname" className="normal-input" name="nickname" value={nickname} onChange={handleNickname} />
                     <label className="auth-label" htmlFor="email">Email:</label>
@@ -35,7 +35,7 @@ const SignUp = () => {
                     <Input id="password" className="normal-input" type="password" name="password" value={password} onChange={handlePassword} />
                     <Input className="auth-form-submit normal-btn" type="submit" value="Submit" />
                 </Form>
-                <span className="sign-link roboto-regular">
+                <span className="sign-link">
                     Already have an account? <Link to={AppRoute.SIGN_IN}>Sign In</Link>
                 </span>
             </div>
