@@ -16,6 +16,7 @@ type Props = {
     isOverview?: boolean;
     onClickPreview?: React.MouseEventHandler<HTMLDivElement>;
     onClickActions?: (id: string) => void;
+    onOpenUpdatePortfolio?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const PortfolioPreview: React.FC<Props> = ({
@@ -24,7 +25,8 @@ const PortfolioPreview: React.FC<Props> = ({
     isEditMode,
     isOverview = false,
     onClickPreview,
-    onClickActions
+    onClickActions,
+    onOpenUpdatePortfolio
 }) => {
     const dispatch = useAppDispatch();
 
@@ -62,7 +64,7 @@ const PortfolioPreview: React.FC<Props> = ({
                     <IconButton className="icon-button" name={IconName.ELLIPSIS} onClick={handleOnClickActions}/>
                     {isShowActions &&
                         <div className="portfolio-list-actions">
-                            <IconButton className="icon-button" name={IconName.EDIT} label={'Edit'} />
+                            <IconButton className="icon-button" name={IconName.EDIT} label={'Edit'} onClick={onOpenUpdatePortfolio}/>
                             <IconButton className="icon-button" name={IconName.DELETE} label={'Delete'} onClick={handleOnDeletePortfolio}/>
                         </div>
                     }
