@@ -2,8 +2,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/hooks';
 import { AppRoute } from '../../../../common/enums/enums';
 import { signOut } from '../../../../store/auth/actions';
-import barsSolid from '../../../../assets/icons/bars-solid.svg';
-import xmark from '../../../../assets/icons/xmark.svg';
+import { IconName } from '../../../../common/enums/components/components';
+import { IconButton } from '../../../../components/icon-button/IconButton';
 import './Header.css';
 
 const Header: React.FC = () => {
@@ -12,23 +12,9 @@ const Header: React.FC = () => {
     const user = useAppSelector(state => state.auth.user);
     const hasUser = Boolean(user);
 
-    const openMenu = () => {
-        const menu = document.getElementById('side-menu') as HTMLElement;
-        menu.setAttribute('style', `
-            width: 300px;
-            overflow: scroll;
-            border-right: var(--btn-color) solid 1px;
-            border-bottom: var(--btn-color) solid 1px;
-        `);
-    }
-
-    const closeMenu = () => {
-        const menu = document.getElementById('side-menu') as HTMLElement;
-        menu.setAttribute('style', `
-            width: 0;
-            overflow: hidden;
-            border: none;
-        `);
+    const handleOnClickMenu = () => {
+        const menuToggle = document.getElementById('menu-toggle') as HTMLInputElement;
+        menuToggle.checked = !menuToggle.checked;
     }
 
     const handleSignOut = async () => {
@@ -38,19 +24,28 @@ const Header: React.FC = () => {
 
     return (
         <header className='main-header'>
-            <img className='bars-solid' src={barsSolid} alt="bars-solid" onClick={openMenu} />
-            <nav id='side-menu' className='menu roboto-regular'>
-                <img className='xmark' src={xmark} alt="xmark" onClick={closeMenu} />
-                {
-                    hasUser ? (
+            <input id='menu-toggle' type='checkbox' />
+            <IconButton className='icon-button' name={IconName.BARS} onClick={handleOnClickMenu}/>
+            <nav className='menu'>
+                <header className='menu-header'>
+                    <IconButton className='xmark icon-button' name={IconName.XMARK} onClick={handleOnClickMenu}></IconButton>
+                </header>
+                <section>
+                    {hasUser ? (
                         <>
-                            <Link className='menu-item' to={AppRoute.PORTFOLIOS}>Portfolios</Link>
-                            <div className='menu-item' onClick={handleSignOut}>Sign Out</div>
+                            <Link className='menu-item' to={AppRoute.PORTFOLIOS}>
+                                <IconButton className='icon-button' name={IconName.COINS} label={'Portfolios'} />
+                            </Link>
+                            <div className='menu-item' onClick={handleSignOut}>
+                                <IconButton className='icon-button' name={IconName.SIGN_OUT} label={'Sign Out'} />
+                            </div>
                         </>
                     ) : (
-                        <Link className='menu-item' to={AppRoute.SIGN_IN}>Sign In</Link>
-                    )
-                }
+                        <Link className='menu-item' to={AppRoute.SIGN_IN}>
+                            <IconButton className='icon-button' name={IconName.SIGN_IN} label={'Sign In'} />
+                        </Link>
+                    )}
+                </section>
             </nav>
         </header>
     );

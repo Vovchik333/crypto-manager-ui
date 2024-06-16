@@ -1,12 +1,15 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { authReducer } from "./auth/auth";
+import { portfolioReducer } from "./portfolio/portfolio";
 
 type RootReducer = {
-    auth: typeof authReducer
+    auth: typeof authReducer;
+    portfolio: typeof portfolioReducer;
 }
 
 const rootReducer = combineReducers<RootReducer>({
-    auth: authReducer
+    auth: authReducer,
+    portfolio: portfolioReducer
 });
 
 export { rootReducer };

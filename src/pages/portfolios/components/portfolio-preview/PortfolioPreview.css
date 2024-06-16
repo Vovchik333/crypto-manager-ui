@@ -1,0 +1,40 @@
+.portfolio-preview-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.portfolio-preview {
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.portfolio-preview:hover {
+    background-color: var(--hover-color);
+}
+
+.portfolio-list-actions-wrapper {
+    position: relative;
+}
+
+.portfolio-list-actions {
+    position: absolute;
+    right: 30px;
+    top: 0;
+    z-index: 2;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: var(--primary-text-color);
+}
+
+.portfolio-list-actions > * {
+    width: 100%;
+}

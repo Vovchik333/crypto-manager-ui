@@ -1,0 +1,17 @@
+.info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-block-top-row {
+    margin: 0;
+    font-size: 16px;
+    color: var(--primary-text-color);
+}
+
+.info-block-bottom-row {
+    margin: 0;
+    font-size: 14px;
+    color: var(--secondary-text-color);
+}

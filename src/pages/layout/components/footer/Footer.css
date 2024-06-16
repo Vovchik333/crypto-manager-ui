@@ -1,15 +1,21 @@
 .main-footer {
-    padding: 0 0 30px;
+    flex: 0 0 auto;
     display: flex;
+    align-items: center;
     justify-content: center;
-    height: 20px;
+    height: 60px;
+    border-top: var(--border-color) solid 1px;
 }
 
 .author-info {
-    width: 237px;
-    color: var(--element-color);
+    width: 239px;
+    color: var(--primary-text-color);
 }
 
 .author-info > a {
-    color: var(--element-color);
+    color: var(--primary-text-color);
+}
+
+.author-info > a:hover {
+    color: var(--accent-color);
 }
