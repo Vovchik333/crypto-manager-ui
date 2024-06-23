@@ -1,5 +1,5 @@
 .assets-table-wrapper {
-    overflow: scroll;
+    overflow-x: scroll;
     width: 100%;
     min-width: 300px;
     max-width: 1000px;
@@ -16,7 +16,6 @@
 }
 
 .asset-row > *:last-child {
-    text-align: left;
     padding: 0 10px;
 }
 

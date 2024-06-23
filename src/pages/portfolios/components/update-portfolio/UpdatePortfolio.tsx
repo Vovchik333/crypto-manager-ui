@@ -23,7 +23,7 @@ const UpdatePortfolio: React.FC<Props> = ({
     onClose
 }) => {
     const dispatch = useAppDispatch();
-    const [name, setName] = useState('');
+    const [name, setName] = useState(portfolio.name);
 
     const handleOnChangeName = (event: ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value);
@@ -42,13 +42,9 @@ const UpdatePortfolio: React.FC<Props> = ({
     return (
         <PortfolioForm hidden={false} topic="Edit portfolio" onClose={onClose}>
             <form className="update-portfolio-form" method="post" action="" onSubmit={handleOnSubmit}>
-                <div className='update-portfolio-inputs'>
-                    <label className='update-portfolio-name-label' htmlFor="portfolio-name-input">New name:</label>
-                    <Input className='normal-input' id='portfolio-name-input' value={name} onChange={handleOnChangeName} />
-                </div>
-                <div className='update-portfolio-btn-wrapper'>
-                    <Button className='update-portfolio-btn normal-btn' type={ButtonType.SUBMIT}>Update</Button>
-                </div>
+                <label className='update-portfolio-name-label' htmlFor="portfolio-name-input">New name:</label>
+                <Input className='normal-input' id='portfolio-name-input' value={name} onChange={handleOnChangeName} />
+                <Button className='update-portfolio-btn normal-btn' type={ButtonType.SUBMIT}>Update</Button>
             </form>
         </PortfolioForm>
     );

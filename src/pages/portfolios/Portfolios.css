@@ -30,7 +30,7 @@
     padding: 0;
     margin: 0;
     padding-right: 15px;
-    overflow: scroll;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     list-style: none;

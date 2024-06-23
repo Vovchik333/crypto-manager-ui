@@ -1,9 +1,14 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../../hooks/hooks';
-import { AppRoute } from '../../../../common/enums/enums';
+import { 
+    Link, 
+    useNavigate 
+} from 'react-router-dom';
+import { 
+    useAppDispatch, 
+    useAppSelector 
+} from '../../../../hooks/hooks';
+import { IconButton } from '../../../../components/components';
+import { AppRoute, IconName } from '../../../../common/enums/enums';
 import { signOut } from '../../../../store/auth/actions';
-import { IconName } from '../../../../common/enums/components/components';
-import { IconButton } from '../../../../components/icon-button/IconButton';
 import './Header.css';
 
 const Header: React.FC = () => {
@@ -30,7 +35,7 @@ const Header: React.FC = () => {
                 <header className='menu-header'>
                     <IconButton className='xmark icon-button' name={IconName.XMARK} onClick={handleOnClickMenu}></IconButton>
                 </header>
-                <section>
+                <section className='menu-items'>
                     {hasUser ? (
                         <>
                             <Link className='menu-item' to={AppRoute.PORTFOLIOS}>

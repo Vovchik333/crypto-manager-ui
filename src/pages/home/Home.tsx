@@ -5,14 +5,16 @@ import './Home.css';
 
 const Home = () => {
     return (
-        <main className="home-content">
-            <h1 className='home-section'>Meet the most convenient and useful crypto manager</h1>
-            <section className="home-section">
-                <span>Gain good investment management experience. The app has many analytical tools that will help you monitor the state of your crypto portfolio.</span>
-                <Link className='sign-in-link' to={AppRoute.SIGN_IN}>
-                    <Button className='sign-in-link-btn normal-btn'>Sign in</Button>
-                </Link>
-            </section>
+        <main className="home-page">
+            <h1 className='home-title'>Meet the most convenient and useful crypto manager</h1>
+            <p className='home-description'>
+                Gain good investment management experience. 
+                The app has many analytical tools that will 
+                help you monitor the state of your crypto portfolio.
+            </p>
+            <Link className='sign-in-link' to={AppRoute.SIGN_IN}>
+                <Button className='sign-in-link-btn normal-btn'>Sign in</Button>
+            </Link>
         </main>
     );
 }

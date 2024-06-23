@@ -10,6 +10,10 @@
     --border-color: #C5C6C7;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html, body, #root {
     height: 100%;
 }
@@ -17,7 +21,6 @@ html, body, #root {
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     background-color: var(--main-color);
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -34,8 +37,7 @@ p {
 }
 
 .main-content {
+    position: relative;
     flex: 1 0 auto;
-    margin: 25px 25px 0;
-    display: flex;
-    justify-content: center;
+    margin: 25px;
 }

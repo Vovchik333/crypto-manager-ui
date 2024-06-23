@@ -13,4 +13,5 @@
     color: var(--primary-text-color);
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }

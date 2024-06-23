@@ -5,11 +5,11 @@
     justify-content: center;
     height: 60px;
     border-top: var(--border-color) solid 1px;
+    color: var(--primary-text-color);
 }
 
 .author-info {
     width: 239px;
-    color: var(--primary-text-color);
 }
 
 .author-info > a {
