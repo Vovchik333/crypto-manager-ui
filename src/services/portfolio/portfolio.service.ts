@@ -1,10 +1,8 @@
-import { Portfolio } from "../../common/types/portfolio/portfolio.type";
+import { Portfolio } from "../../common/types/types";
 import portfoliosJson from "../../assets/data/portfolios.json";
 
 class PortfolioService {
-    constructor() {
-        
-    }
+    constructor() {}
 
     public async getAll(): Promise<Portfolio[]> {
         const portfolios = portfoliosJson;

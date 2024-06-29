@@ -1,4 +1,4 @@
-import { User } from "../../common/types/user/user.type";
+import { User } from "../../common/types/entities/user/user.type";
 
 class AuthService {
     constructor() {
