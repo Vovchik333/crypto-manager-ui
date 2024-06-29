@@ -9,10 +9,8 @@ const Modal: React.FC<Props> = ({
     children
 }) => {
     return (
-        <div>
-            <div className="modal">
-                {children}
-            </div>
+        <div className="modal">
+            {children}
         </div>
     );
 }

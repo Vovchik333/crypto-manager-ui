@@ -7,3 +7,4 @@ export { Modal } from './modal/Modal';
 export { PrivateRoute } from './private-route/PrivateRoute';
 export { PublicRoute } from './public-route/PublicRoute';
 export { Spinner } from './spinner/Spinner';
+export { FormTemplate } from './form-template/FormTemplate';

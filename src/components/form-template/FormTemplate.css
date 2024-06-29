@@ -1,0 +1,17 @@
+.form-template {
+    width: 30%;
+    max-height: 80%;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 20px;
+    color: var(--primary-text-color);
+}
+
+.form-template__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

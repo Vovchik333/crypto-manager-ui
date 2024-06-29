@@ -9,7 +9,9 @@ import {
     faSignOut, 
     faSpinner, 
     faTrash, 
-    faXmark
+    faXmark,
+    faChevronRight,
+    faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
 import { IconName } from "../../common/enums/components/components";
 
@@ -24,7 +26,9 @@ const iconNameToSvgIcon = {
     [IconName.CHECK]: faCheck,
     [IconName.EDIT]: faEdit,
     [IconName.DELETE]: faTrash,
-    [IconName.SPINNER]: faSpinner
+    [IconName.SPINNER]: faSpinner,
+    [IconName.NEXT]: faChevronRight,
+    [IconName.BACK]: faChevronLeft,
 }
 
 export { iconNameToSvgIcon };

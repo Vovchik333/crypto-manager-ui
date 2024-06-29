@@ -1,22 +1,26 @@
+import { InputType } from '../../common/enums/enums';
+import { ValueOf } from '../../common/generic/generic';
 import './Input.css';
 
 type Props = {
     id?: string;
     className?: string;
-    type?: 'email' | 'password' | 'submit' | 'text';
+    type?: ValueOf<typeof InputType>;
     name?: string;
     placeholder?: string;
     value?: string | number;
+    checked?: boolean;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
 const Input: React.FC<Props> = ({
     id,
     className,
-    type = 'text',
+    type = InputType.TEXT,
     name,
     placeholder,
     value,
+    checked,
     onChange
 }) => {
     return (
@@ -27,6 +31,7 @@ const Input: React.FC<Props> = ({
             name={name}
             placeholder={placeholder}
             value={value}
+            checked={checked}
             onChange={onChange}
         />
     );
