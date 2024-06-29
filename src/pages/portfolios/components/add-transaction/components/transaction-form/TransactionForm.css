@@ -1,0 +1,82 @@
+.transaction-form__type,
+.transaction-form__selected-coin,
+.transaction-form__price-info,
+.transaction-form__total {
+    margin-bottom: 20px;
+}
+
+.transaction-form__type {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.transaction-form__type-input {
+    display: none;
+}
+
+.transaction-form__type-label {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+}
+
+.transaction-form__type-input:checked + .transaction-form__type-label {
+    background-color: var(--hover-color);
+}
+
+.transaction-form__type-label:nth-of-type(2) {
+    border-right: 2px solid var(--border-color);
+    border-left: 2px solid var(--border-color);
+}
+
+.transaction-form__selected-coin {
+    width: 100%;
+    padding:10px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.transaction-form__price-info {
+    width: 100%;
+    border: none;
+    display: flex;
+    gap: 10px;;
+}
+
+.transaction-form__side {
+    width: 50%;
+}
+
+.transaction-form__price-info-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.transaction-form__price-info-input {
+    width: 100%;
+}
+
+.transaction-form__total {
+    padding: 10px;
+    background-color: var(--hover-color);
+    border-radius: 10px;
+}
+
+.transaction-form__total-header {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.transaction-form__total-price {
+    font-size: 18px;
+}
+
+.transaction-form__submit-button {
+    margin: 0 auto;
+    width: 50%;
+    height: 40px;
+}

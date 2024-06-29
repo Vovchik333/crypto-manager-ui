@@ -9,7 +9,9 @@ const IconName = {
     CHECK: 'check',
     EDIT: 'edit',
     DELETE: 'delete',
-    SPINNER: 'spinner'
+    SPINNER: 'spinner',
+    NEXT: 'next',
+    BACK: 'back'
 } as const;
 
 export { IconName };

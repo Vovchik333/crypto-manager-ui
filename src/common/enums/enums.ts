@@ -4,5 +4,9 @@ export {
 export {
     ButtonType,
     IconColor,
-    IconName
+    IconName,
+    InputType
 } from './components/components';
+export {
+    TransactionType
+} from './entities/entities'

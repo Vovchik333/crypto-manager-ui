@@ -15,7 +15,8 @@ import {
     AssetTable, 
     PortfolioPreview,
     CreatePortfolio, 
-    UpdatePortfolio
+    UpdatePortfolio,
+    AddTransaction
 } from "./components/components";
 import { Portfolio } from "../../common/types/types";
 import { IconName } from "../../common/enums/enums";
@@ -31,6 +32,7 @@ const Portfolios: React.FC = () => {
     const [portfolioIdForUpdate, setPortfolioIdForUpdate] = useState<string | null>(null);
     const [editPortfolioMode, setEditPortfolioMode] = useState<boolean>(false);
     const [createPortfolioVisibility, setCreatePortfolioVisibility] = useState<boolean>(false);
+    const [isAddTransaction, setIsAddTransaction] = useState<boolean>(false);
     const [showPortfolioActionsId, setShowPortfolioActionsId] = useState<string>('');
 
     const overviewPortfolios = {
@@ -64,6 +66,14 @@ const Portfolios: React.FC = () => {
 
     const handleOnClickActions = (id: string) => {
         setShowPortfolioActionsId(id);
+    }
+
+    const handleOnOpenAddTransaction = () => {
+        setIsAddTransaction(true);
+    }
+
+    const handleOnCloseAddTransaction = () => {
+        setIsAddTransaction(false);
     }
 
     const selectedPortfolio = portfolios.find(portfolio => portfolio.id === selectedPortfolioId) as Portfolio;
@@ -130,7 +140,7 @@ const Portfolios: React.FC = () => {
                                 <strong>${selectedPortfolio.assets.reduce((acc, cur) => acc + (cur.holdings * cur.price), 0)}</strong>
                             </div>
                             <div className="stats-right-side">
-                                <Button className="normal-btn"> + Add transaction </Button>
+                                <Button className="normal-btn" onClick={handleOnOpenAddTransaction}> + Add transaction </Button>
                             </div>
                         </section>
                         <AssetTable assets={selectedPortfolio.assets} />
@@ -147,6 +157,9 @@ const Portfolios: React.FC = () => {
                     portfolio={portfolioForUpdate}  
                     onClose={handleOnCloseUpdatePortfolio}
                 />
+            )}
+            {isAddTransaction && (
+                <AddTransaction onClose={handleOnCloseAddTransaction} />
             )}
         </>
     );

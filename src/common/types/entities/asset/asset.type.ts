@@ -1,7 +1,8 @@
 type Asset = {
     id: string;
     name: string;
-    ticker: string;
+    symbol: string;
+    image: string;
     price: number;
     avgPrice: number;
     currentProfit: number;

@@ -4,9 +4,9 @@ import {
 } from "react";
 import { 
     Button, 
-    Input 
+    Input,
+    FormTemplate 
 } from "../../../../components/components";
-import { PortfolioForm } from "../components";
 import { ButtonType } from "../../../../common/enums/enums";
 import { useAppDispatch } from "../../../../hooks/hooks";
 import { updatePortfolio } from "../../../../store/portfolio/actions";
@@ -40,13 +40,13 @@ const UpdatePortfolio: React.FC<Props> = ({
     }
 
     return (
-        <PortfolioForm hidden={false} topic="Edit portfolio" onClose={onClose}>
+        <FormTemplate topic="Edit portfolio" onClose={onClose}>
             <form className="update-portfolio-form" method="post" action="" onSubmit={handleOnSubmit}>
                 <label className='update-portfolio-name-label' htmlFor="portfolio-name-input">New name:</label>
                 <Input className='normal-input' id='portfolio-name-input' value={name} onChange={handleOnChangeName} />
                 <Button className='update-portfolio-btn normal-btn' type={ButtonType.SUBMIT}>Update</Button>
             </form>
-        </PortfolioForm>
+        </FormTemplate>
     );
 }
 
