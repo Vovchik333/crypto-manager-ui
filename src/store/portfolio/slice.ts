@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { Portfolio } from "../../common/types/portfolio/portfolio.type";
+import { Portfolio } from "../../common/types/types";
 import { createPortfolio, deletePortfolio, loadPortfolios, updatePortfolio } from "./actions";
 
 type State = {

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { User } from "../../common/types/user/user.type";
+import { User } from "../../common/types/types";
 import { AsyncThunkConfig } from "../../common/types/store/async-thunk-config.type";
 import { ActionType } from "./common";
 

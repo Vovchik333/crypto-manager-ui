@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { User } from "../../common/types/user/user.type";
+import { User } from "../../common/types/types";
 import { signIn, signOut, signUp } from "./actions";
 
 interface State {
