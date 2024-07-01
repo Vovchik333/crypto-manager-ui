@@ -13,8 +13,8 @@ const InfoBlock: React.FC<Props> = ({
 }) => {
     return (
         <article className={`info-block ${className}`}>
-            <h4 className="info-block-top-row">{topRow}</h4>
-            <p className="info-block-bottom-row">{bottomRow}</p>
+            <h4 className="info-block__header">{topRow}</h4>
+            <p className="info-block__description">{bottomRow}</p>
         </article>
     );
 }

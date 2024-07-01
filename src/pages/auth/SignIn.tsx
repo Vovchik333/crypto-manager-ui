@@ -23,15 +23,39 @@ const SignIn = () => {
 
     return (
         <main className="auth-page">
-            <form className="auth-form" method="post" onSubmit={handleSubmit}>
-                <label className="auth-label" htmlFor="email">Email:</label>
-                <Input id="email" className="normal-input" type="email" name="email" value={email} onChange={handleEmail} />
-                <label className="auth-label" htmlFor="password">Password:</label>
-                <Input id="password" className="normal-input" type="password" name="password" value={password} onChange={handlePassword} />
-                <Input className="normal-btn" type="submit" value="Submit" />
+            <form className="auth-page__form" method="post" onSubmit={handleSubmit}>
+                <label 
+                    className="auth-page__form-label" 
+                    htmlFor="email"
+                >Email: </label>
+                <Input 
+                    id="email" 
+                    className="input auth-page__form-input" 
+                    type="email" 
+                    name="email" 
+                    value={email} 
+                    onChange={handleEmail} 
+                />
+                <label 
+                    className="auth-page__form-label" 
+                    htmlFor="password"
+                >Password: </label>
+                <Input 
+                    id="password" 
+                    className="input auth-page__form-input" 
+                    type="password" 
+                    name="password" 
+                    value={password} 
+                    onChange={handlePassword} 
+                />
+                <Input 
+                    className="button auth-page__form-input-submit" 
+                    type="submit" 
+                    value="Submit" 
+                />
             </form>
-            <p className="sign-link">
-                Don't have an account? <Link to={AppRoute.SIGN_UP}>Sign Up</Link>
+            <p className="auth-page__sign-suggestion">
+                Don't have an account? <Link className="auth-page__sign-link" to={AppRoute.SIGN_UP}>Sign Up</Link>
             </p>
         </main>
     );

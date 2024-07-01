@@ -1,17 +1,23 @@
-import { ChangeEvent, useState } from "react";
+import { 
+    ChangeEvent, 
+    useState 
+} from "react";
+import { useAppDispatch } from "../../../../../../hooks/hooks";
+import { 
+    Button, 
+    Input 
+} from "../../../../../../components/components";
 import { 
     ButtonType, 
     InputType, 
     TransactionType 
 } from "../../../../../../common/enums/enums";
 import { 
-    Button, 
-    Input 
-} from "../../../../../../components/components";
-import { Coin, Transaction } from '../../../../../../common/types/types';
-import './TransactionForm.css';
-import { useAppDispatch } from "../../../../../../hooks/hooks";
+    Coin, 
+    Transaction 
+} from '../../../../../../common/types/types';
 import { addTransaction } from "../../../../../../store/transaction/actions";
+import './TransactionForm.css';
 
 type Props = {
     coins: Coin[];
@@ -119,7 +125,7 @@ const TransactionForm: React.FC<Props> = ({
                     >Quantity:</label>
                     <Input 
                         id='transaction-quantity'
-                        className='transaction-form__price-info-input normal-input' 
+                        className='input transaction-form__price-info-input' 
                         type={InputType.NUMBER} 
                         placeholder="0.00"
                         value={transaction.quantity}
@@ -133,7 +139,7 @@ const TransactionForm: React.FC<Props> = ({
                     >Price per coin:</label>
                     <Input 
                         id='transaction-price-per-coin'
-                        className='transaction-form__price-info-input normal-input' 
+                        className='input transaction-form__price-info-input' 
                         type={InputType.NUMBER} 
                         value={transaction.pricePerCoin}
                         onChange={handleOnChangePricePerCoin}
@@ -142,10 +148,10 @@ const TransactionForm: React.FC<Props> = ({
             </fieldset>
             <div className="transaction-form__total">
                 <h4 className="transaction-form__total-header">Total: </h4>
-                <p className="transaction-form__total-price">{`$ ${totalSum.toString()}`}</p>
+                <p className="transaction-form__total-price">{`$ ${totalSum}`}</p>
             </div>
             <Button 
-                className='transaction-form__submit-button normal-btn' 
+                className='button transaction-form__submit-button' 
                 type={ButtonType.SUBMIT}
             >Add</Button>
         </form>

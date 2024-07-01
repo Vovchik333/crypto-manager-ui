@@ -3,7 +3,8 @@ import {
     useState 
 } from 'react';
 import { 
-    FormTemplate
+    FormTemplate,
+    Spinner
 } from '../../../../components/components';
 import { coinGeckoService } from '../../../../services/services';
 import { Coin } from '../../../../common/types/types';
@@ -35,11 +36,11 @@ const AddTransaction: React.FC<Props> = ({
         coinGeckoService.getCoins()
             .then(coins => {
                 setCoins(coins as Coin[]);
-            })
+            });
     }, []);
 
     if (coins === null) {
-        return <></>;
+        return (<Spinner />);
     }
 
     return (

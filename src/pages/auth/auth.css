@@ -3,7 +3,7 @@
     color: var(--primary-text-color);
 }
 
-.auth-form {
+.auth-page__form {
     background-color: var(--secondary-color);
     padding: 20px;
     border-radius: 10px;
@@ -13,29 +13,31 @@
     flex-direction: column;
 }
 
-.auth-form > label {
-    margin-bottom: 5px;
+.auth-page__form-label {
+    margin-bottom: 10px;
 }
 
-.auth-form > input {
+.auth-page__form-input {
     margin-bottom: 20px;
 }
 
-.auth-form > input[type='submit'] {
+.auth-page__form-input-submit {
     width: 100px;
     height: 50px;
     margin: 10px auto 0;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
-.sign-link {
+.auth-page__sign-suggestion {
     width: 100%;
     text-align: center;
 }
 
-.sign-link > * {
+.auth-page__sign-link {
     color: var(--primary-text-color);
 }
 
-.sign-link > *:hover {
+.auth-page__sign-link:hover {
     color: var(--accent-color);
 }

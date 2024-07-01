@@ -35,10 +35,21 @@ const CreatePortfolio: React.FC<Props> = ({
 
     return (
         <FormTemplate topic="Creating a new portfolio" onClose={onClose}>
-            <form className="create-portfolio-form" method="post" action="" onSubmit={handleOnSubmit}>
-                <label className='create-portfolio-name-label' htmlFor="portfolio-name-input">Name:</label>
-                <Input className='normal-input' id='portfolio-name-input' value={name} onChange={handleOnChangeName} />
-                <Button className='create-portfolio-btn normal-btn' type={ButtonType.SUBMIT}>Create</Button>
+            <form className="create-portfolio" method="post" action="" onSubmit={handleOnSubmit}>
+                <label 
+                    className='create-portfolio__name-label' 
+                    htmlFor="portfolio-name-input"
+                >Name: </label>
+                <Input 
+                    className='input' 
+                    id='portfolio-name-input' 
+                    value={name} 
+                    onChange={handleOnChangeName} 
+                />
+                <Button 
+                    className='button create-portfolio__submit-button' 
+                    type={ButtonType.SUBMIT}
+                >Create</Button>
             </form>
         </FormTemplate>
     );

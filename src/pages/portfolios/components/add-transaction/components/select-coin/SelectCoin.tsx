@@ -24,7 +24,7 @@ const SelectCoin: React.FC<Props> = ({
     return (
         <>
             <Input 
-                className='normal-input' 
+                className='input' 
                 placeholder='Search' 
                 value={coinName} 
                 onChange={handleOnChangeCoinName}

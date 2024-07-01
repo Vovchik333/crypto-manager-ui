@@ -4,13 +4,13 @@
     gap: 5px;
 }
 
-.info-block-top-row {
+.info-block__header {
     margin: 0;
     font-size: 16px;
     color: var(--primary-text-color);
 }
 
-.info-block-bottom-row {
+.info-block__description {
     margin: 0;
     font-size: 14px;
     color: var(--secondary-text-color);

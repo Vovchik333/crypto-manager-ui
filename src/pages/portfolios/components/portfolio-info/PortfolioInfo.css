@@ -1,0 +1,22 @@
+.portfolio-info {
+    width: 100%;
+    min-width: 300px;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.portfolio-info__stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portfolio-info__stats-item {
+    margin-bottom: 10px;;
+}
+
+.add-transaction-button {
+    font-weight: bold;
+}

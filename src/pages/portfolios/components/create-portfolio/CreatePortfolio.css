@@ -1,16 +1,16 @@
-.create-portfolio-form {
+.create-portfolio {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.create-portfolio-name-label {
+.create-portfolio__name-label {
     color: var(--primary-text-color);
     margin-bottom: 5px;
 }
 
-.create-portfolio-btn {
+.create-portfolio__submit-button {
     margin-top: 20px;
     width: 100%;
     height: 50px;   

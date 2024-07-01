@@ -1,16 +1,16 @@
-.update-portfolio-form {
+.update-portfolio {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.update-portfolio-name-label {
+.update-portfolio__name-label {
     color: var(--primary-text-color);
     margin-bottom: 5px;
 }
 
-.update-portfolio-btn {
+.update-portfolio__submit-button {
     margin-top: 20px;
     width: 100%;
     height: 50px;   

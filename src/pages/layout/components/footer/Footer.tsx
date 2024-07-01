@@ -2,9 +2,10 @@ import './Footer.css';
 
 const Footer: React.FC = () => {
     return (
-        <footer className='main-footer'>
-            <span className='author-info roboto-regular'>
-                Created by <a href="https://github.com/Vovchik333" target='_blank'>Volodymyr Potapenko</a>
+        <footer className='footer'>
+            <span 
+                className='footer__author-info'
+            >Created by <a className='footer__author-info-link' href="https://github.com/Vovchik333" target='_blank'>Volodymyr Potapenko</a>
             </span>
         </footer>
     );

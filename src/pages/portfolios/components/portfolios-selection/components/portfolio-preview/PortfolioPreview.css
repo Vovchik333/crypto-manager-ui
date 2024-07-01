@@ -1,9 +1,9 @@
-.portfolio-preview-wrapper {
+.portfolio-preview {
     display: flex;
     align-items: center;
 }
 
-.portfolio-preview {
+.portfolio-preview__content {
     color: var(--secondary-color);
     cursor: pointer;
     padding: 10px;
@@ -13,15 +13,15 @@
     width: 100%;
 }
 
-.portfolio-preview:hover {
+.portfolio-preview__content:hover {
     background-color: var(--hover-color);
 }
 
-.portfolio-list-actions-wrapper {
+.portfolio-preview__list-actions {
     position: relative;
 }
 
-.portfolio-list-actions {
+.portfolio-preview__list-actions-content {
     position: absolute;
     right: 30px;
     top: 0;
@@ -35,6 +35,15 @@
     color: var(--primary-text-color);
 }
 
-.portfolio-list-actions > * {
-    width: 100%;
+.portfolio-preview__action {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.portfolio-preview__action:hover {
+    background-color: var(--hover-color);
 }

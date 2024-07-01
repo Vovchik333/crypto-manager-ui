@@ -1,0 +1,38 @@
+.portfolios-selection {
+    top: 20px;
+    position: sticky;
+    width: 100%;
+    min-width: 200px;
+    max-width: 250px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.portfolios-selection__count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.portfolios-selection__items {
+    padding: 0;
+    margin: 0;
+    padding-right: 15px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 10px;
+}
+
+.portfolios-selection__item {
+    height: 100%;
+}
+
+.create-portfolio-button {
+    font-size: 1.1rem;
+    font-weight: bold;
+}

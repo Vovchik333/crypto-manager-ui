@@ -9,17 +9,11 @@
     align-items: center;
 }
 
-.icon-button > *:first-child {
-    width: 20px;
-    height: 20px;
-}
-
-.icon-btn-label {
-    margin-left: 10px;
-    font-size: 16px;
-    color: var(--primary-text-color);
-}
-
 .icon-button:hover {
     background-color: var(--hover-color);
+}
+
+.icon-button__icon {
+    width: 20px;
+    height: 20px;
 }

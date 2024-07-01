@@ -6,20 +6,15 @@ import {
     useAppDispatch, 
     useAppSelector 
 } from "../../hooks/hooks";
+import { Spinner } from "../../components/components";
 import { 
-    Button, 
-    IconButton, 
-    Spinner
-} from "../../components/components";
-import { 
-    AssetTable, 
-    PortfolioPreview,
     CreatePortfolio, 
     UpdatePortfolio,
-    AddTransaction
+    AddTransaction,
+    PortfolioInfo,
+    PortfoliosSelection
 } from "./components/components";
 import { Portfolio } from "../../common/types/types";
-import { IconName } from "../../common/enums/enums";
 import { loadPortfolios } from "../../store/portfolio/actions";
 import './Portfolios.css';
 
@@ -29,43 +24,28 @@ const Portfolios: React.FC = () => {
 
     const [isPageLoad, setIsPageLoad] = useState<boolean>(false);
     const [selectedPortfolioId, setSelectedPortfolioId] = useState<string | null>(null);
-    const [portfolioIdForUpdate, setPortfolioIdForUpdate] = useState<string | null>(null);
-    const [editPortfolioMode, setEditPortfolioMode] = useState<boolean>(false);
-    const [createPortfolioVisibility, setCreatePortfolioVisibility] = useState<boolean>(false);
+    const [updatePortfolioId, setUpdatePortfolioId] = useState<string | null>(null);
+    const [isCreatePortfolio, setIsCreatePortfolio] = useState<boolean>(false);
     const [isAddTransaction, setIsAddTransaction] = useState<boolean>(false);
-    const [showPortfolioActionsId, setShowPortfolioActionsId] = useState<string>('');
 
-    const overviewPortfolios = {
-        name: 'Overview',
-        totalSum: portfolios.reduce((acc, cur) => acc + cur.totalSum, 0)
-    };
-
-    const handleSelectPortfolioId = (id: string) => {
+    const handleOnSelectPortfolioId = (id: string) => {
         return () => setSelectedPortfolioId(id);
     };
 
     const handleOnOpenCreatePortfolio = () => {
-        setCreatePortfolioVisibility(true);
+        setIsCreatePortfolio(true);
     }
 
     const handleOnCloseCreatePortfolio = () => {
-        setCreatePortfolioVisibility(false);
+        setIsCreatePortfolio(false);
     }
 
     const handleOnOpenUpdatePortfolio = (id: string) => {
-        return () => setPortfolioIdForUpdate(id);
+        return () => setUpdatePortfolioId(id);
     }
 
     const handleOnCloseUpdatePortfolio = () => {
-        setPortfolioIdForUpdate(null);
-    }
-
-    const handleOnEditPortfolioMode = () => {
-        setEditPortfolioMode(!editPortfolioMode);
-    }
-
-    const handleOnClickActions = (id: string) => {
-        setShowPortfolioActionsId(id);
+        setUpdatePortfolioId(null);
     }
 
     const handleOnOpenAddTransaction = () => {
@@ -77,7 +57,7 @@ const Portfolios: React.FC = () => {
     }
 
     const selectedPortfolio = portfolios.find(portfolio => portfolio.id === selectedPortfolioId) as Portfolio;
-    const portfolioForUpdate = portfolios.find(portfolio => portfolio.id === portfolioIdForUpdate) as Portfolio;
+    const portfolioForUpdate = portfolios.find(portfolio => portfolio.id === updatePortfolioId) as Portfolio;
 
     useEffect(() => {
         const initPortfolios = async () => {
@@ -95,59 +75,21 @@ const Portfolios: React.FC = () => {
 
     return (
         <>
-            <main className="portfolios-page roboto-regular">
-                <aside className="portfolios-selection">
-                    <PortfolioPreview 
-                        portfolio={overviewPortfolios as Portfolio}
-                        showPortfolioActionsId={showPortfolioActionsId} 
-                        isOverview={true} 
-                        isEditMode={editPortfolioMode}
-                    />
-                    <section className="portfolios-count">
-                        <span>My portfolios ({portfolios.length})</span>
-                        <IconButton 
-                            className="icon-button" 
-                            name={editPortfolioMode ? IconName.CHECK : IconName.PEN} 
-                            onClick={handleOnEditPortfolioMode}
-                        />
-                    </section>
-                    <ul className="portfolios">
-                        {portfolios.map((portfolio) => {
-                            return (
-                                <li key={portfolio.id}>
-                                    <PortfolioPreview 
-                                        portfolio={portfolio} 
-                                        showPortfolioActionsId={showPortfolioActionsId} 
-                                        isEditMode={editPortfolioMode}
-                                        onClickPreview={handleSelectPortfolioId(portfolio.id as string)}
-                                        onClickActions={handleOnClickActions} 
-                                        onOpenUpdatePortfolio={handleOnOpenUpdatePortfolio(portfolio.id as string)}
-                                    />
-                                </li>
-                            );
-                        })}
-                    </ul>
-                    <Button className="create-portfolio-btn normal-btn" onClick={handleOnOpenCreatePortfolio}>
-                        + Create portfolio
-                    </Button>
-                </aside>
+            <main className="portfolios-page">
+                <PortfoliosSelection 
+                    portfolios={portfolios}
+                    onOpenCreatePortfolio={handleOnOpenCreatePortfolio}
+                    onOpenUpdatePortfolio={handleOnOpenUpdatePortfolio}
+                    onSelectPortfolioId={handleOnSelectPortfolioId}
+                />
                 {Boolean(selectedPortfolio) &&
-                    <section className="portfolio-info">
-                        <section className="stats">
-                            <div className="stats-left-side">
-                                <p>{selectedPortfolio.name}</p>
-                                <h2>Total value: </h2>
-                                <strong>${selectedPortfolio.assets.reduce((acc, cur) => acc + (cur.holdings * cur.price), 0)}</strong>
-                            </div>
-                            <div className="stats-right-side">
-                                <Button className="normal-btn" onClick={handleOnOpenAddTransaction}> + Add transaction </Button>
-                            </div>
-                        </section>
-                        <AssetTable assets={selectedPortfolio.assets} />
-                    </section>
+                    <PortfolioInfo 
+                        portfolio={selectedPortfolio} 
+                        onOpenAddTransaction={handleOnOpenAddTransaction}
+                    />
                 }
             </main>
-            {createPortfolioVisibility && (
+            {isCreatePortfolio && (
                 <CreatePortfolio 
                     onClose={handleOnCloseCreatePortfolio}
                 />

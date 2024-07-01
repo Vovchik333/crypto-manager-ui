@@ -10,8 +10,8 @@ import {
 import { ButtonType } from "../../../../common/enums/enums";
 import { useAppDispatch } from "../../../../hooks/hooks";
 import { updatePortfolio } from "../../../../store/portfolio/actions";
-import './UpdatePortfolio.css';
 import { Portfolio } from "../../../../common/types/types";
+import './UpdatePortfolio.css';
 
 type Props = {
     portfolio: Portfolio;
@@ -41,10 +41,21 @@ const UpdatePortfolio: React.FC<Props> = ({
 
     return (
         <FormTemplate topic="Edit portfolio" onClose={onClose}>
-            <form className="update-portfolio-form" method="post" action="" onSubmit={handleOnSubmit}>
-                <label className='update-portfolio-name-label' htmlFor="portfolio-name-input">New name:</label>
-                <Input className='normal-input' id='portfolio-name-input' value={name} onChange={handleOnChangeName} />
-                <Button className='update-portfolio-btn normal-btn' type={ButtonType.SUBMIT}>Update</Button>
+            <form className="update-portfolio" method="post" onSubmit={handleOnSubmit}>
+                <label 
+                    className='update-portfolio__name-label' 
+                    htmlFor="portfolio-name-input"
+                >New name:</label>
+                <Input 
+                    className='input' 
+                    id='portfolio-name-input' 
+                    value={name} 
+                    onChange={handleOnChangeName} 
+                />
+                <Button 
+                    className='button update-portfolio__submit-button' 
+                    type={ButtonType.SUBMIT}
+                >Update</Button>
             </form>
         </FormTemplate>
     );

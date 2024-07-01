@@ -1,4 +1,4 @@
-.main-footer {
+.footer {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
@@ -8,14 +8,14 @@
     color: var(--primary-text-color);
 }
 
-.author-info {
+.footer__author-info {
     width: 239px;
 }
 
-.author-info > a {
+.footer__author-info-link {
     color: var(--primary-text-color);
 }
 
-.author-info > a:hover {
+.footer__author-info-link:hover {
     color: var(--accent-color);
 }

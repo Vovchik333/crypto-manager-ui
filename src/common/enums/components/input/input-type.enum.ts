@@ -4,7 +4,8 @@ const InputType = {
     SUBMIT: 'submit', 
     TEXT: 'text', 
     RADIO: 'radio', 
-    NUMBER: 'number'
+    NUMBER: 'number',
+    CHECKBOX: 'checkbox'
 };
 
 export { InputType };

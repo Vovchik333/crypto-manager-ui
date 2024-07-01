@@ -2,10 +2,10 @@
     list-style-type: none;
     overflow-y: scroll;
     z-index: 100;
+    padding-right: 5px;
 }
 
 .coins__item {
-    width: 98%;
     border: 2px solid var(--border-color);
     border-radius: 10px;
     cursor: pointer;
