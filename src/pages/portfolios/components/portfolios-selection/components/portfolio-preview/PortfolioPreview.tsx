@@ -67,14 +67,14 @@ const PortfolioPreview: React.FC<Props> = ({
                         <ul className="portfolio-preview__list-actions-content">
                             <li className="portfolio-preview__action" onClick={onOpenUpdatePortfolio}>
                                 <Icon 
-                                    className="icon-button" 
+                                    className="icon" 
                                     name={IconName.EDIT} 
                                 />
                                 <span>Edit</span>
                             </li>
                             <li className="portfolio-preview__action" onClick={handleOnDeletePortfolio}>
                                 <Icon 
-                                    className="icon-button" 
+                                    className="icon" 
                                     name={IconName.DELETE} 
                                 />
                                 <span>Delete</span>

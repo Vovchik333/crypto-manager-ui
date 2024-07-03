@@ -1,7 +1,7 @@
 const TransactionType = {
-    BUY: 'buy',
-    SELL: 'sell',
-    TRANSFER: 'transfer'
+    BUY: 'Buy',
+    SELL: 'Sell',
+    TRANSFER: 'Transfer'
 }
 
 export { TransactionType };

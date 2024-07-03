@@ -1,0 +1,13 @@
+.back-section {
+    padding: 10px 0;
+}
+
+.back-section__content {
+    cursor: pointer;
+    color: var(--accent-color);
+    width: 55px;
+}
+
+.back-section__icon {
+    margin-right: 5px;
+}

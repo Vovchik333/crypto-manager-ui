@@ -1,4 +1,4 @@
-import { Asset } from "../asset/asset.type";
+import { Asset } from "../entities";
 
 type Portfolio = {
     id?: string;

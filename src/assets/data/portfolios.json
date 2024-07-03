@@ -8,31 +8,37 @@
                 "id": "10", 
                 "name": "Cosmos", 
                 "symbol": "ATOM", 
+                "image": "https://coin-images.coingecko.com/coins/images/1481/large/cosmos_hub.png?1696502525",
                 "price": 8.655555, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 100.0, 
-                "holdings": 11.628
+                "holdings": 11.628,
+                "transactions": []
             },
             { 
                 "id": "11", 
                 "name": "Polkadot", 
                 "symbol": "DOT", 
+                "image": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.png?1696512008",
                 "price": 7.2, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 200.0, 
-                "holdings": 21.778
+                "holdings": 21.778,
+                "transactions": []
             },
             { 
                 "id": "21", 
                 "name": "Wormhole", 
                 "symbol": "W", 
+                "image": "https://coin-images.coingecko.com/coins/images/35087/large/womrhole_logo_full_color_rgb_2000px_72ppi_fb766ac85a.png?1708688954",
                 "price": 0.6, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 300.0, 
-                "holdings": 500
+                "holdings": 500,
+                "transactions": []
             }
         ]
     },
@@ -45,31 +51,37 @@
                 "id": "10", 
                 "name": "Bitcoin", 
                 "symbol": "BTC", 
+                "image": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
                 "price": 67890.63, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 100.0, 
-                "holdings": 11.628
+                "holdings": 11.628,
+                "transactions": []
             },
             { 
                 "id": "11", 
                 "name": "Polkadot", 
                 "symbol": "DOT", 
+                "image": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.png?1696512008",
                 "price": 7.2, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 200.0, 
-                "holdings": 21.778
+                "holdings": 21.778,
+                "transactions": []
             },
             { 
                 "id": "21", 
                 "name": "Wormhole", 
                 "symbol": "W", 
+                "image": "https://coin-images.coingecko.com/coins/images/35087/large/womrhole_logo_full_color_rgb_2000px_72ppi_fb766ac85a.png?1708688954",
                 "price": 0.6, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 300.0, 
-                "holdings": 500
+                "holdings": 500,
+                "transactions": []
             }
         ]
     },
@@ -82,31 +94,37 @@
                 "id": "10", 
                 "name": "Cosmos", 
                 "symbol": "ATOM", 
+                "image": "https://coin-images.coingecko.com/coins/images/1481/large/cosmos_hub.png?1696502525",
                 "price": 8.6, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 100.0, 
-                "holdings": 11.628
+                "holdings": 11.628,
+                "transactions": []
             },
             { 
                 "id": "11", 
                 "name": "Osmosis", 
                 "symbol": "OSMO", 
+                "image": "https://coin-images.coingecko.com/coins/images/16724/large/osmo.png?1696516298",
                 "price": 0.8, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 200.0, 
-                "holdings": 21.778
+                "holdings": 21.778,
+                "transactions": []
             },
             { 
                 "id": "21", 
                 "name": "Wormhole", 
                 "symbol": "W", 
+                "image": "https://coin-images.coingecko.com/coins/images/35087/large/womrhole_logo_full_color_rgb_2000px_72ppi_fb766ac85a.png?1708688954",
                 "price": 0.6, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 300.0, 
-                "holdings": 500
+                "holdings": 500,
+                "transactions": []
             }
         ]
     },
@@ -119,71 +137,85 @@
                 "id": "10", 
                 "name": "Cosmos", 
                 "symbol": "ATOM", 
+                "image": "https://coin-images.coingecko.com/coins/images/1481/large/cosmos_hub.png?1696502525",
                 "price": 8.6, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 100.0, 
-                "holdings": 11.628
+                "holdings": 11.628,
+                "transactions": []
             },
             { 
                 "id": "11", 
                 "name": "Polkadot", 
                 "symbol": "DOT", 
+                "image": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.png?1696512008",
                 "price": 7.2, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 200.0, 
-                "holdings": 21.778
+                "holdings": 21.778,
+                "transactions": []
             },
             { 
                 "id": "21", 
                 "name": "Dymension", 
                 "symbol": "DYM", 
+                "image": "https://coin-images.coingecko.com/coins/images/34182/large/dym.png?1704253006",
                 "price": 3.0, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 300.0, 
-                "holdings": 500
+                "holdings": 500,
+                "transactions": []
             },
             { 
                 "id": "11", 
                 "name": "Polkadot", 
                 "symbol": "DOT", 
+                "image": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.png?1696512008",
                 "price": 7.2, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 200.0, 
-                "holdings": 21.778
+                "holdings": 21.778,
+                "transactions": []
             },
             { 
                 "id": "11", 
                 "name": "Polkadot", 
                 "symbol": "DOT", 
+                "image": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.png?1696512008",
                 "price": 7.2, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 200.0, 
-                "holdings": 21.778
+                "holdings": 21.778,
+                "transactions": []
             },
             { 
                 "id": "11", 
                 "name": "Polkadot", 
                 "symbol": "DOT", 
+                "image": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.png?1696512008",
                 "price": 7.2, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 200.0, 
-                "holdings": 21.778
+                "holdings": 21.778,
+                "transactions": []
             },
             { 
                 "id": "11", 
                 "name": "Polkadot", 
                 "symbol": "DOT", 
+                "image": "https://coin-images.coingecko.com/coins/images/12171/large/polkadot.png?1696512008",
                 "price": 7.2, 
                 "avgPrice": 9.1, 
                 "currentProfit": 20, 
                 "invested": 200.0, 
-                "holdings": 21.778
+                "holdings": 21.778,
+                "transactions": []
             }
         ]
     }

@@ -1,0 +1,11 @@
+.coin-info-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-info-block__image {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}

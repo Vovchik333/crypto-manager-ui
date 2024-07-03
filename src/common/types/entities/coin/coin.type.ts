@@ -1,5 +1,5 @@
 import { type Asset } from "../entities";
 
-type Coin = Pick<Asset, 'id' | 'name' | 'symbol' | 'image' | 'price'>;
+type Coin = Pick<Asset, 'id' | 'name' | 'image' | 'symbol' | 'price'>;
 
 export { type Coin };

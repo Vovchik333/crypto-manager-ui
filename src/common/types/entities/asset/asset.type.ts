@@ -1,3 +1,5 @@
+import { Transaction } from "../entities";
+
 type Asset = {
     id: string;
     name: string;
@@ -8,6 +10,7 @@ type Asset = {
     currentProfit: number;
     invested: number;
     holdings: number;
+    transactions: Transaction[]
 };
 
 export { type Asset };

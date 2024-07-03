@@ -2,7 +2,7 @@
     {
         "id": "ecdmkeow382292eij3ckekcefce",
         "symbol": "ATOM",
-        "type": "buy",
+        "type": "Buy",
         "pricePerCoin": 6.3,
         "quantity": 100,
         "createdAt": "Jun 29, 2024, 11:40 AM"
@@ -10,7 +10,7 @@
     {
         "id": "ecdmkzkj1kkskmskskekcefcesm",
         "symbol": "BNB",
-        "type": "buy",
+        "type": "Buy",
         "pricePerCoin": 639.3,
         "quantity": 20,
         "createdAt": "Jun 24, 2024, 11:40 AM"
@@ -18,7 +18,7 @@
     {
         "id": "ecakskadsjh8382290eij3ckekcefce",
         "symbol": "ATOM",
-        "type": "buy",
+        "type": "Buy",
         "pricePerCoin": 9.3,
         "quantity": 22,
         "createdAt": "Jun 21, 2024, 11:40 AM"
@@ -26,7 +26,7 @@
     {
         "id": "ecdmksskslsql39jskkskmskskekcefce",
         "symbol": "BNB",
-        "type": "buy",
+        "type": "Buy",
         "pricePerCoin": 639.3,
         "quantity": 29,
         "createdAt": "Jun 28, 2024, 11:40 AM"
@@ -34,7 +34,7 @@
     {
         "id": "ecakskaka382290eij3ck9034mdoowice",
         "symbol": "ATOM",
-        "type": "buy",
+        "type": "Buy",
         "pricePerCoin": 8.3,
         "quantity": 12,
         "createdAt": "Jun 10, 2024, 11:40 AM"

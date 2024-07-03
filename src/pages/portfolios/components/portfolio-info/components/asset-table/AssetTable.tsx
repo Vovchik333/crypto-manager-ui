@@ -4,13 +4,16 @@ import {
     TableTemplate 
 } from "../../../../../../components/components";
 import { Asset } from "../../../../../../common/types/types";
+import './AssetTable.css';
 
 type Props = {
     assets: Asset[];
+    onSelectAssetId: (value: string | null) => React.MouseEventHandler<HTMLTableRowElement>;
 }
 
 const AssetTable: React.FC<Props> = ({
-    assets
+    assets,
+    onSelectAssetId
 }) => {
     const assetColumnNames: string[] = [
         'Asset', 'Price', 'Avg buy price', 
@@ -36,7 +39,10 @@ const AssetTable: React.FC<Props> = ({
             {assets.map(asset => {
                 const { name, price, avgPrice, invested, holdings, symbol } = asset;
                 const assetData: ReactNode[] = [
-                    <InfoBlock topRow={symbol} bottomRow={name} />,
+                    <div className="coin-info-block">
+                        <img className="coin-info-block__image" src={asset.image} alt="Coin Image" />
+                        <InfoBlock topRow={symbol} bottomRow={name} />
+                    </div>,
                     `$${price.toFixed(4)}`,
                     `${avgPrice.toFixed(4)}`,
                     <InfoBlock topRow={getUsdProfit(asset)} bottomRow={getPercentageProfit(asset)} />,
@@ -45,10 +51,11 @@ const AssetTable: React.FC<Props> = ({
                 ]
 
                 return (
-                    <tr className="table-template__data-row" key={asset.id}>
-                        {assetData.map(data => {
+                    <tr className="table-template__data-row" key={asset.id} onClick={onSelectAssetId(asset.id)}>
+                        {assetData.map((data, index) => {
                             return (
                                 <td 
+                                    key={index}
                                     className="table-template__row-element"
                                 >
                                     {data}

@@ -12,7 +12,8 @@ import {
     UpdatePortfolio,
     AddTransaction,
     PortfolioInfo,
-    PortfoliosSelection
+    PortfoliosSelection,
+    TransactionsInfo,
 } from "./components/components";
 import { Portfolio } from "../../common/types/types";
 import { loadPortfolios } from "../../store/portfolio/actions";
@@ -27,6 +28,7 @@ const Portfolios: React.FC = () => {
     const [updatePortfolioId, setUpdatePortfolioId] = useState<string | null>(null);
     const [isCreatePortfolio, setIsCreatePortfolio] = useState<boolean>(false);
     const [isAddTransaction, setIsAddTransaction] = useState<boolean>(false);
+    const [selectedAssetId, setSelectedAssetId] = useState<string | null>(null);
 
     const handleOnSelectPortfolioId = (id: string) => {
         return () => setSelectedPortfolioId(id);
@@ -56,6 +58,10 @@ const Portfolios: React.FC = () => {
         setIsAddTransaction(false);
     }
 
+    const handleOnSelectAssetId = (value: string | null) => {
+        return () => setSelectedAssetId(value);
+    }
+
     const selectedPortfolio = portfolios.find(portfolio => portfolio.id === selectedPortfolioId) as Portfolio;
     const portfolioForUpdate = portfolios.find(portfolio => portfolio.id === updatePortfolioId) as Portfolio;
 
@@ -82,12 +88,22 @@ const Portfolios: React.FC = () => {
                     onOpenUpdatePortfolio={handleOnOpenUpdatePortfolio}
                     onSelectPortfolioId={handleOnSelectPortfolioId}
                 />
-                {Boolean(selectedPortfolio) &&
-                    <PortfolioInfo 
-                        portfolio={selectedPortfolio} 
-                        onOpenAddTransaction={handleOnOpenAddTransaction}
-                    />
-                }
+                {Boolean(selectedPortfolio) && (
+                    (selectedAssetId === null) ? (
+                        <PortfolioInfo 
+                            portfolio={selectedPortfolio} 
+                            onOpenAddTransaction={handleOnOpenAddTransaction}
+                            onSelectAssetId={handleOnSelectAssetId}
+                        />
+                    ) : (
+                        <TransactionsInfo 
+                            portfolio={selectedPortfolio} 
+                            selectedAssetId={selectedAssetId}
+                            onOpenAddTransaction={handleOnOpenAddTransaction}
+                            onBackToPortfolio={handleOnSelectAssetId(null)}
+                        />
+                    )
+                )}
             </main>
             {isCreatePortfolio && (
                 <CreatePortfolio 
