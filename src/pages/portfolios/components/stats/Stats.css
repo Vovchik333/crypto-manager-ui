@@ -1,0 +1,13 @@
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stats__item {
+    margin-bottom: 10px;;
+}
+
+.stats__add-transaction-button {
+    font-weight: bold;
+}
