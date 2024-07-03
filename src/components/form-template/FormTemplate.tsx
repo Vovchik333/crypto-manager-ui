@@ -9,7 +9,7 @@ import './FormTemplate.css';
 type Props = {
     topic: string;
     children: ReactNode;
-    onClose: () => void;
+    onClose: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const FormTemplate: React.FC<Props> = ({
@@ -22,7 +22,11 @@ const FormTemplate: React.FC<Props> = ({
             <div className='form-template'>
                 <header className='form-template__header'>
                     <h3>{topic}</h3>
-                    <IconButton className='icon-button' name={IconName.XMARK} onClick={onClose}></IconButton>
+                    <IconButton 
+                        className='icon-button' 
+                        name={IconName.XMARK} 
+                        onClick={onClose}
+                    />
                 </header>
                 {children}
             </div>
