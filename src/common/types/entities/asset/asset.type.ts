@@ -1,7 +1,8 @@
 import { Transaction } from "../entities";
 
 type Asset = {
-    id: string;
+    id?: string;
+    portfolioId: string;
     name: string;
     symbol: string;
     image: string;
@@ -10,7 +11,7 @@ type Asset = {
     currentProfit: number;
     invested: number;
     holdings: number;
-    transactions: Transaction[]
+    transactions: Transaction[];
 };
 
 export { type Asset };

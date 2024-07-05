@@ -13,24 +13,31 @@ import {
     TransactionType 
 } from "../../../../../../common/enums/enums";
 import { 
+    Asset,
     Coin, 
     Transaction 
 } from '../../../../../../common/types/types';
-import { addTransaction } from "../../../../../../store/transaction/actions";
 import './TransactionForm.css';
+import { addTransaction, createAsset } from "../../../../../../store/asset/actions";
 
 type Props = {
-    coins: Coin[];
+    portfolioId: string;
+    assets: Asset[];
     selectedCoin: Coin;
+    onClose: () => void;
 }
 
 const TransactionForm: React.FC<Props> = ({
+    portfolioId,
+    assets,
     selectedCoin,
+    onClose
 }) => {
     const dispatch = useAppDispatch();
 
+    const asset = assets?.find(asset => asset.name === selectedCoin.name) as Asset;
+
     const [transaction, setTransaction] = useState<Transaction>({
-        symbol: selectedCoin.symbol,
         type: TransactionType.BUY,
         quantity: 0.00,
         pricePerCoin: selectedCoin.price,
@@ -54,7 +61,6 @@ const TransactionForm: React.FC<Props> = ({
             ...transaction,
             quantity: quantityValue
         });
-        
     }
 
     const handleOnChangePricePerCoin = (event: ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +73,32 @@ const TransactionForm: React.FC<Props> = ({
     const handleOnSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
 
-        await dispatch(addTransaction(transaction));
+        if (!Boolean(asset)) {
+            const { name, symbol, image } = selectedCoin;
+            const { quantity, pricePerCoin } = transaction;
+
+            await dispatch(createAsset({
+                portfolioId,
+                name,
+                symbol,
+                image,
+                price: quantity * pricePerCoin,
+                avgPrice: selectedCoin.price,
+                currentProfit: quantity * pricePerCoin,
+                invested: quantity * pricePerCoin,
+                holdings: quantity * pricePerCoin,
+                transaction
+            }));
+        } else {
+            const { transactions, ...assetWithoutTransaction } = asset;
+
+            await dispatch(addTransaction({
+                ...assetWithoutTransaction,
+                transaction
+            }));
+        }
+
+        onClose();
     }
 
     return (

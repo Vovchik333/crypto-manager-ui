@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { IconName } from "../../../../common/enums/enums";
-import { Asset, Portfolio, Transaction } from "../../../../common/types/types";
-import { Icon, NotFound } from "../../../../components/components";
+import { Asset, Transaction } from "../../../../common/types/types";
+import { Icon } from "../../../../components/components";
 import { Stats, TransactionDetails } from "../components";
 import { TransactionsTable } from "./components/components";
 import './Transactioninfo.css';
 
 type Props = {
-    portfolio: Portfolio;
+    assets: Asset[];
     selectedAssetId: string;
     onOpenAddTransaction: React.MouseEventHandler<HTMLButtonElement>;
     onBackToPortfolio: React.MouseEventHandler<HTMLDivElement>;
 };
 
 const TransactionsInfo: React.FC<Props> = ({
-    portfolio,
+    assets,
     selectedAssetId,
     onOpenAddTransaction,
     onBackToPortfolio
-}) => {
+}) => { 
     const [transactioDetailsId, setisTansactionDetails] = useState<string | null>(null);
 
     const handleOnOpenTransactionDetails = (id: string) => {
@@ -29,7 +29,7 @@ const TransactionsInfo: React.FC<Props> = ({
         setisTansactionDetails(null);
     }
 
-    const selectedAsset = portfolio.assets.find(asset => asset.id === selectedAssetId) as Asset;
+    const selectedAsset = assets.find(asset => asset.id === selectedAssetId) as Asset;
     const { name, holdings, price, transactions } = selectedAsset;
     const totalSum = (holdings * price);
 
@@ -49,17 +49,14 @@ const TransactionsInfo: React.FC<Props> = ({
                     totalSum={totalSum} 
                     onOpenAddTransaction={onOpenAddTransaction}
                 />
-                {(transactions.length === 0) ? (
-                    <NotFound>Transactions not found</NotFound>
-                ) : (
-                    <TransactionsTable 
-                        transactions={transactions} 
-                        onOpenTransactionDetails={handleOnOpenTransactionDetails}
-                    />  
-                )}
+                <TransactionsTable 
+                    asset={selectedAsset} 
+                    onOpenTransactionDetails={handleOnOpenTransactionDetails}
+                />  
             </section>
             {Boolean(selectedTransaction) && (
                 <TransactionDetails 
+                    asset={selectedAsset}
                     transaction={selectedTransaction}
                     onClose={handleOnCloseTransactionDetails}
                 />

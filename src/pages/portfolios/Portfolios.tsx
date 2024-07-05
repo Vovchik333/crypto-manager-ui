@@ -17,11 +17,13 @@ import {
 } from "./components/components";
 import { Portfolio } from "../../common/types/types";
 import { loadPortfolios } from "../../store/portfolio/actions";
+import { loadAssets } from "../../store/asset/actions";
 import './Portfolios.css';
 
 const Portfolios: React.FC = () => {
     const dispatch = useAppDispatch();
-    const portfolios = useAppSelector(state => state.portfolio.portfolios);
+    const { portfolios } = useAppSelector(state => state.portfolio);
+    const { assets } = useAppSelector(state => state.asset);
 
     const [isPageLoad, setIsPageLoad] = useState<boolean>(false);
     const [selectedPortfolioId, setSelectedPortfolioId] = useState<string | null>(null);
@@ -67,7 +69,8 @@ const Portfolios: React.FC = () => {
 
     useEffect(() => {
         const initPortfolios = async () => {
-            await dispatch(loadPortfolios());        
+            await dispatch(loadPortfolios());   
+            await dispatch(loadAssets());  
             setSelectedPortfolioId(portfolios[0].id as string);
             setIsPageLoad(true);
         }
@@ -92,12 +95,13 @@ const Portfolios: React.FC = () => {
                     (selectedAssetId === null) ? (
                         <PortfolioInfo 
                             portfolio={selectedPortfolio} 
+                            assets={assets}
                             onOpenAddTransaction={handleOnOpenAddTransaction}
                             onSelectAssetId={handleOnSelectAssetId}
                         />
                     ) : (
                         <TransactionsInfo 
-                            portfolio={selectedPortfolio} 
+                            assets={assets} 
                             selectedAssetId={selectedAssetId}
                             onOpenAddTransaction={handleOnOpenAddTransaction}
                             onBackToPortfolio={handleOnSelectAssetId(null)}
@@ -117,7 +121,11 @@ const Portfolios: React.FC = () => {
                 />
             )}
             {isAddTransaction && (
-                <AddTransaction onClose={handleOnCloseAddTransaction} />
+                <AddTransaction 
+                    portfolioId={selectedPortfolioId as string}
+                    assets={assets}
+                    onClose={handleOnCloseAddTransaction} 
+                />
             )}
         </>
     );

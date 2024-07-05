@@ -1,24 +1,25 @@
 import { ReactNode } from "react";
-import { Transaction } from "../../../../../../common/types/types";
+import { Asset } from "../../../../../../common/types/types";
 import { IconButton, InfoBlock, TableTemplate } from "../../../../../../components/components";
 import { IconName } from "../../../../../../common/enums/enums";
 import './TransactionsTable.css';
 
 type Props = {
-    transactions: Transaction[];
+    asset: Asset;
     onOpenTransactionDetails: (id: string) => React.MouseEventHandler<HTMLTableRowElement>;
 }
 
 const TransactionsTable: React.FC<Props> = ({
-    transactions,
+    asset,
     onOpenTransactionDetails
 }) => {
     const columnNames = ['Type', 'Price', 'Amount', 'Actions'];
+    const { symbol, transactions } = asset;
 
     return (
         <TableTemplate name="Transactions" columnNames={columnNames}>
             {transactions.map(transaction => {
-                const { symbol, pricePerCoin, type, quantity, createdAt } = transaction;
+                const { pricePerCoin, type, quantity, createdAt } = transaction;
                 const transactionsData: ReactNode[] = [
                     <InfoBlock topRow={type} bottomRow={createdAt} />,
                     `$${pricePerCoin}`,

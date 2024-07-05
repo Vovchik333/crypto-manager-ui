@@ -1,28 +1,33 @@
-import { Transaction } from '../../../../common/types/types';
+import { Asset, Transaction } from '../../../../common/types/types';
 import { FormTemplate } from '../../../../components/components';
 import './TransactionDetails.css';
 
 type Props = {
+    asset: Asset;
     transaction: Transaction;
     onClose: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-type TransactionKeys = 'Type' | 'Date' | 'Price per coin' | 'Quantity' | 'Total';
+type TransactionKeys = 'Type' | 'Date' | 'Name' | 'Symbol' | 'Price per coin' | 'Quantity' | 'Total';
 
 const TransactionDetails: React.FC<Props> = ({
+    asset,
     transaction,
     onClose
 }) => {
-    const { type, createdAt, pricePerCoin, quantity, symbol } = transaction;
+    const { name, symbol } = asset;
+    const { type, createdAt, pricePerCoin, quantity } = transaction;
+    
     const rowData = {
         'Type': type, 
         'Date': createdAt, 
+        'Name': name,
+        'Symbol': symbol,
         'Price per coin': `$${pricePerCoin}`,
         'Quantity': `${quantity} ${symbol}`, 
         'Total': `$${pricePerCoin * quantity}`
     };
     
-
     return (
         <FormTemplate topic='Transaction details' onClose={onClose}>
             <ul className='transaction-details'>

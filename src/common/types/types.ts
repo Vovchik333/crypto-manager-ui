@@ -1,5 +1,6 @@
 export { 
     type Asset,
+    type AssetWithTransaction,
     type Coin,
     type Portfolio,
     type User,

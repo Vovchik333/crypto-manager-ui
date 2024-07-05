@@ -7,16 +7,23 @@ import {
     Spinner
 } from '../../../../components/components';
 import { coinGeckoService } from '../../../../services/services';
-import { Coin } from '../../../../common/types/types';
+import { 
+    Asset, 
+    Coin 
+} from '../../../../common/types/types';
 import { 
     SelectCoin, 
     TransactionForm 
 } from './components/components';
 
 type Props = {
+    portfolioId: string;
+    assets: Asset[];
     onClose: () => void;
 }
 const AddTransaction: React.FC<Props> = ({
+    portfolioId,
+    assets,
     onClose
 }) => {
     const [coins, setCoins] = useState<Coin[] | null>(null);
@@ -47,8 +54,10 @@ const AddTransaction: React.FC<Props> = ({
         isSelectedCoin ? (
             <FormTemplate topic='Add Transaction' onClose={onClose}>
                 <TransactionForm 
-                    coins={coins} 
-                    selectedCoin={selectedCoin}          
+                    portfolioId={portfolioId}
+                    assets={assets}
+                    selectedCoin={selectedCoin}      
+                    onClose={onClose}    
                 />
             </FormTemplate>
         ) : (

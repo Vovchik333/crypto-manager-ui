@@ -3,7 +3,7 @@ import { ValueOf } from "../../../generic/generic";
 
 type Transaction = {
     id?: string;
-    symbol: string;
+    assetId?: string;
     type: ValueOf<typeof TransactionType>;
     pricePerCoin: number;
     quantity: number;

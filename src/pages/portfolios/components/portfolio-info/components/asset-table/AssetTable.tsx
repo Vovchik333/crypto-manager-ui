@@ -51,7 +51,7 @@ const AssetTable: React.FC<Props> = ({
                 ]
 
                 return (
-                    <tr className="table-template__data-row" key={asset.id} onClick={onSelectAssetId(asset.id)}>
+                    <tr className="table-template__data-row" key={asset.id} onClick={onSelectAssetId(asset.id as string)}>
                         {assetData.map((data, index) => {
                             return (
                                 <td 
