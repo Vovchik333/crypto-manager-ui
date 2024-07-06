@@ -1,0 +1,37 @@
+import { Button, Modal } from "../components";
+import './Promt.css';
+
+type Props = {
+    topic: string;
+    text: string;
+    onCancel: React.MouseEventHandler<HTMLButtonElement>;
+    onOk: React.MouseEventHandler<HTMLButtonElement>;
+};
+
+const Promt: React.FC<Props> = ({
+    topic,
+    text,
+    onCancel,
+    onOk
+}) => {
+    return (
+        <Modal>
+            <div className="promt">
+                <h1 className="promt__topic">{topic}</h1>
+                <p className="promt__text">{text}</p>
+                <div className="promt__buttons">
+                    <Button 
+                        className="promt__button-cancel button"
+                        onClick={onCancel}
+                    >Cancel</Button>
+                    <Button 
+                        className="promt__button-ok button"
+                        onClick={onOk}
+                    >Ok</Button>
+                </div>
+            </div>
+        </Modal>
+    );
+};
+
+export { Promt };

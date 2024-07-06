@@ -11,3 +11,4 @@ export { Spinner } from './spinner/Spinner';
 export { FormTemplate } from './form-template/FormTemplate';
 export { TableTemplate } from './table-template/TableTemplate';
 export { NotFound } from './not-found/NotFound';
+export { Promt } from './promt/Promt';

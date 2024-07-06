@@ -13,7 +13,7 @@ import {
     AddTransaction,
     PortfolioInfo,
     PortfoliosSelection,
-    TransactionsInfo,
+    TransactionsInfo
 } from "./components/components";
 import { Portfolio } from "../../common/types/types";
 import { loadPortfolios } from "../../store/portfolio/actions";

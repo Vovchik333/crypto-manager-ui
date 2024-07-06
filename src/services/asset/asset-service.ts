@@ -9,7 +9,8 @@ class AssetService {
     constructor() {}
 
     public async getAll(): Promise<Asset[]> {
-        const assets = assetsJson as Asset[];
+        // const assets = assetsJson as Asset[];
+        const assets = [] as Asset[];
 
         return assets;
     }

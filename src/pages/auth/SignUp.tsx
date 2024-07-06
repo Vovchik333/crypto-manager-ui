@@ -9,17 +9,34 @@ import './auth.css';
 const SignUp = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const [nickname, setNickname] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [signUpUser, setSignUpUser] = useState({
+        nickname: '',
+        email: '',
+        password: ''
+    });
 
-    const handleNickname = (event: ChangeEvent<HTMLInputElement>) => setNickname(event.target.value);
-    const handleEmail = (event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value);
-    const handlePassword = (event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value);
+    const handleNickname = (event: ChangeEvent<HTMLInputElement>) => {
+        setSignUpUser({
+            ...signUpUser,
+            nickname: event.target.value
+        });
+    }
+    const handleEmail = (event: ChangeEvent<HTMLInputElement>) => {
+        setSignUpUser({
+            ...signUpUser,
+            email: event.target.value
+        });
+    }
+    const handlePassword = (event: ChangeEvent<HTMLInputElement>) => {
+        setSignUpUser({
+            ...signUpUser,
+            password: event.target.value
+        });
+    }
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         
-        dispatch(signUp({ nickname, email, password }));
+        dispatch(signUp(signUpUser));
         navigate(AppRoute.PORTFOLIOS);
     }
 
@@ -34,7 +51,7 @@ const SignUp = () => {
                     id="nickname" 
                     className="input auth-page__form-input" 
                     name="nickname" 
-                    value={nickname} 
+                    value={signUpUser.nickname} 
                     onChange={handleNickname} 
                 />
                 <label 
@@ -46,7 +63,7 @@ const SignUp = () => {
                     className="input auth-page__form-input" 
                     type="email" 
                     name="email" 
-                    value={email} 
+                    value={signUpUser.email} 
                     onChange={handleEmail} 
                 />
                 <label 
@@ -58,7 +75,7 @@ const SignUp = () => {
                     className="input auth-page__form-input" 
                     type="password" 
                     name="password" 
-                    value={password} 
+                    value={signUpUser.password} 
                     onChange={handlePassword} 
                 />
                 <Input 

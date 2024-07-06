@@ -9,15 +9,27 @@ import './auth.css';
 const SignIn = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [signInUser, setSignInUser] = useState({
+        email: '',
+        password: ''
+    });
 
-    const handleEmail = (event: ChangeEvent<HTMLInputElement>) => setEmail(event.target.value);
-    const handlePassword = (event: ChangeEvent<HTMLInputElement>) => setPassword(event.target.value);
+    const handleEmail = (event: ChangeEvent<HTMLInputElement>) => {
+        setSignInUser({
+            ...signInUser,
+            email: event.target.value
+        });
+    }
+    const handlePassword = (event: ChangeEvent<HTMLInputElement>) => {
+        setSignInUser({
+            ...signInUser,
+            password: event.target.value
+        });
+    }
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         
-        dispatch(signIn({ email, password }));
+        dispatch(signIn(signInUser));
         navigate(AppRoute.PORTFOLIOS);
     }
 
@@ -33,7 +45,7 @@ const SignIn = () => {
                     className="input auth-page__form-input" 
                     type="email" 
                     name="email" 
-                    value={email} 
+                    value={signInUser.email} 
                     onChange={handleEmail} 
                 />
                 <label 
@@ -45,7 +57,7 @@ const SignIn = () => {
                     className="input auth-page__form-input" 
                     type="password" 
                     name="password" 
-                    value={password} 
+                    value={signInUser.password} 
                     onChange={handlePassword} 
                 />
                 <Input 
