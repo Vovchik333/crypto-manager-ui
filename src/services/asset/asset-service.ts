@@ -1,9 +1,9 @@
 import { 
     Asset, 
-    AssetWithTransaction, 
-    Transaction 
+    AssetWithTransaction
 } from "../../common/types/types";
 import assetsJson from '../../assets/data/assets.json';
+import { AssetIdWithTransactionId } from "../../common/types/entities/entities";
 
 class AssetService {
     constructor() {}
@@ -25,7 +25,7 @@ class AssetService {
 
         const asset = {
             ...payload,
-            
+
             id: assetId
         } as AssetWithTransaction;
 
@@ -36,7 +36,7 @@ class AssetService {
         return payload;
     }
 
-    public async removeTransaction(payload: AssetWithTransaction): Promise<AssetWithTransaction> {
+    public async removeTransaction(payload: AssetIdWithTransactionId): Promise<AssetIdWithTransactionId> {
         return payload;
     }
 

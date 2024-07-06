@@ -31,9 +31,12 @@ const TransactionDetails: React.FC<Props> = ({
     return (
         <FormTemplate topic='Transaction details' onClose={onClose}>
             <ul className='transaction-details'>
-                {Object.keys(rowData).map(key => {
+                {Object.keys(rowData).map((key, index) => {
                     return (
-                        <li className='transaction-details__item'>
+                        <li 
+                            key={index}
+                            className='transaction-details__item'
+                        >
                             <span className='transaction-details__item-feature'>{key}</span>
                             <span className='transaction-details__item-value'>{rowData[key as TransactionKeys]}</span>
                         </li>

@@ -10,7 +10,7 @@ type Props = {
     assets: Asset[];
     selectedAssetId: string;
     onOpenAddTransaction: React.MouseEventHandler<HTMLButtonElement>;
-    onBackToPortfolio: React.MouseEventHandler<HTMLDivElement>;
+    onBackToPortfolio: () => void;
 };
 
 const TransactionsInfo: React.FC<Props> = ({
@@ -51,6 +51,7 @@ const TransactionsInfo: React.FC<Props> = ({
                 />
                 <TransactionsTable 
                     asset={selectedAsset} 
+                    onBackToPortfolio={onBackToPortfolio}
                     onOpenTransactionDetails={handleOnOpenTransactionDetails}
                 />  
             </section>

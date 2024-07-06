@@ -17,8 +17,8 @@ const PortfolioInfo: React.FC<Props> = ({
     onOpenAddTransaction,
     onSelectAssetId
 }) => {
-    const portfolioAssets = assets.filter(asset => asset.portfolioId === portfolio.id)
     const { name } = portfolio;
+    const portfolioAssets = assets.filter(asset => asset.portfolioId === portfolio.id);
     const portfolioTotalSum = assets.reduce((acc, cur) => acc + (cur.holdings * cur.price), 0);
 
     return (

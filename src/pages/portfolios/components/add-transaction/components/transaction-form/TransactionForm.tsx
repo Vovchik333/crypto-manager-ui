@@ -34,8 +34,8 @@ const TransactionForm: React.FC<Props> = ({
     onClose
 }) => {
     const dispatch = useAppDispatch();
-
-    const asset = assets?.find(asset => asset.name === selectedCoin.name) as Asset;
+    const filteredAsssets = assets.filter(asset => asset.portfolioId === portfolioId);
+    const asset = filteredAsssets.find(asset => asset.name === selectedCoin.name) as Asset;
 
     const [transaction, setTransaction] = useState<Transaction>({
         type: TransactionType.BUY,

@@ -41,14 +41,14 @@ const AssetTable: React.FC<Props> = ({
                 const assetData: ReactNode[] = [
                     <div className="coin-info-block">
                         <img className="coin-info-block__image" src={asset.image} alt="Coin Image" />
-                        <InfoBlock topRow={symbol} bottomRow={name} />
+                        <InfoBlock topRow={symbol.toUpperCase()} bottomRow={name} />
                     </div>,
                     `$${price.toFixed(4)}`,
                     `${avgPrice.toFixed(4)}`,
                     <InfoBlock topRow={getUsdProfit(asset)} bottomRow={getPercentageProfit(asset)} />,
                     `$${invested.toFixed(2)}`,
                     <InfoBlock topRow={`$${(holdings * price).toFixed(2)}`} bottomRow={`${holdings.toFixed(2)} ${symbol}`} />
-                ]
+                ];
 
                 return (
                     <tr className="table-template__data-row" key={asset.id} onClick={onSelectAssetId(asset.id as string)}>

@@ -1,6 +1,7 @@
 export { 
     type Asset,
-    type AssetWithTransaction
+    type AssetWithTransaction,
+    type AssetIdWithTransactionId
 } from './asset/asset';
 export { type Coin } from './coin/coin.type';
 export { type Portfolio } from './portfolio/portfolio.type';
