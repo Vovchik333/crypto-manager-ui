@@ -21,6 +21,7 @@ type Props = {
     assets: Asset[];
     onClose: () => void;
 }
+
 const AddTransaction: React.FC<Props> = ({
     portfolioId,
     assets,

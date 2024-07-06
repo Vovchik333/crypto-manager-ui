@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { IconName } from "../../../../common/enums/enums";
-import { Asset, Transaction } from "../../../../common/types/types";
+import { Asset, AssetWithTransaction, Transaction } from "../../../../common/types/types";
 import { Icon } from "../../../../components/components";
 import { Stats, TransactionDetails } from "../components";
 import { TransactionsTable } from "./components/components";
 import './Transactioninfo.css';
+import { UpdateTransaction } from "../update-transaction/UpdateTransaction";
 
 type Props = {
     assets: Asset[];
@@ -20,6 +21,7 @@ const TransactionsInfo: React.FC<Props> = ({
     onBackToPortfolio
 }) => { 
     const [transactioDetailsId, setisTansactionDetails] = useState<string | null>(null);
+    const [updateTransactionId, setUpdateTransactionId] = useState<string | null>(null);
 
     const handleOnOpenTransactionDetails = (id: string) => {
         return () => setisTansactionDetails(id);
@@ -29,9 +31,27 @@ const TransactionsInfo: React.FC<Props> = ({
         setisTansactionDetails(null);
     }
 
+    const handleOnOpenUpdateTransaction = (id: string) => {
+        return (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            event.stopPropagation();
+            
+            setUpdateTransactionId(id);
+        }
+    }
+
+    const handleOnCloseUpdateTransaction = () => {
+        setUpdateTransactionId(null);
+    }
+
     const selectedAsset = assets.find(asset => asset.id === selectedAssetId) as Asset;
-    const { name, holdings, price, transactions } = selectedAsset;
+    const { transactions, ...assetWithoutTransaction } = selectedAsset;
+    const { name, holdings, price } = assetWithoutTransaction;
     const totalSum = (holdings * price);
+    const transactionForUpdate = transactions.find(transaction => transaction.id === updateTransactionId);
+    const assetForUpdate = { 
+        ...assetWithoutTransaction, 
+        transaction: transactionForUpdate 
+    } as AssetWithTransaction;
 
     const selectedTransaction = transactions.find(transaction => transaction.id === transactioDetailsId) as Transaction;
 
@@ -53,6 +73,7 @@ const TransactionsInfo: React.FC<Props> = ({
                     asset={selectedAsset} 
                     onBackToPortfolio={onBackToPortfolio}
                     onOpenTransactionDetails={handleOnOpenTransactionDetails}
+                    onOpenUpdateTransaction={handleOnOpenUpdateTransaction}
                 />  
             </section>
             {Boolean(selectedTransaction) && (
@@ -60,6 +81,12 @@ const TransactionsInfo: React.FC<Props> = ({
                     asset={selectedAsset}
                     transaction={selectedTransaction}
                     onClose={handleOnCloseTransactionDetails}
+                />
+            )}
+            {Boolean(updateTransactionId) && (
+                <UpdateTransaction
+                    asset={assetForUpdate}
+                    onClose={handleOnCloseUpdateTransaction}
                 />
             )}
         </>

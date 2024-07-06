@@ -9,12 +9,14 @@ import './TransactionsTable.css';
 type Props = {
     asset: Asset;
     onOpenTransactionDetails: (id: string) => React.MouseEventHandler<HTMLTableRowElement>;
+    onOpenUpdateTransaction: (id: string) => React.MouseEventHandler<HTMLButtonElement>;
     onBackToPortfolio: () => void;
 }
 
 const TransactionsTable: React.FC<Props> = ({
     asset,
     onOpenTransactionDetails,
+    onOpenUpdateTransaction,
     onBackToPortfolio
 }) => {
     const dispatch = useAppDispatch();
@@ -23,7 +25,9 @@ const TransactionsTable: React.FC<Props> = ({
     const { symbol, transactions } = asset;
 
     const handleOnRemoveTransaction = (transactionId: string) => {
-        return () => {
+        return (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+            event.stopPropagation();
+
             if (transactions.length === 1) {
                 onBackToPortfolio();
                 dispatch(deleteAsset(asset.id as string));
@@ -45,7 +49,7 @@ const TransactionsTable: React.FC<Props> = ({
                     `$${pricePerCoin}`,
                     <InfoBlock topRow={`+$${(quantity * pricePerCoin).toFixed(2)}`} bottomRow={`+${quantity} ${symbol}`} />,
                     <div className="action-icons">
-                        <IconButton className="icon-button" name={IconName.EDIT} onClick={undefined} />
+                        <IconButton className="icon-button" name={IconName.EDIT} onClick={onOpenUpdateTransaction(transaction.id as string)} />
                         <IconButton className="icon-button" name={IconName.DELETE} onClick={handleOnRemoveTransaction(transaction.id as string)} />
                     </div>
                 ];
