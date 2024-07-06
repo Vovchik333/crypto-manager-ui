@@ -36,6 +36,10 @@ class AssetService {
         return payload;
     }
 
+    public async updateTransaction(payload: Partial<AssetWithTransaction>): Promise<AssetWithTransaction> {
+        return payload as AssetWithTransaction;
+    }
+
     public async removeTransaction(payload: AssetIdWithTransactionId): Promise<AssetIdWithTransactionId> {
         return payload;
     }

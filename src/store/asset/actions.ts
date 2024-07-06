@@ -46,6 +46,19 @@ const addTransaction = createAsyncThunk<
     }
 );
 
+const updateTransaction = createAsyncThunk<
+    AssetWithTransaction,
+    Partial<AssetWithTransaction>,
+    AsyncThunkConfig
+>(
+    ActionType.UPDATE_TRANSACTION,
+    async (payload, { extra: { assetService } }) => {
+        const assetWithTransaction = assetService.updateTransaction(payload);
+
+        return assetWithTransaction;
+    }
+);
+
 const removeTransaction = createAsyncThunk<
     AssetIdWithTransactionId,
     AssetIdWithTransactionId,
@@ -76,6 +89,7 @@ export {
     loadAssets,
     createAsset,
     addTransaction,
+    updateTransaction,
     removeTransaction,
     deleteAsset 
 };
