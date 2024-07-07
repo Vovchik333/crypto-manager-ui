@@ -4,6 +4,7 @@
     height: 60px;
     display: flex;
     align-items: center;
+    background-color: var(--secondary-color);
     border-bottom: var(--border-color) solid 1px;
 }
 

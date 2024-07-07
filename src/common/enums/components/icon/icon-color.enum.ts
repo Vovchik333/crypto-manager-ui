@@ -1,5 +1,5 @@
 const IconColor = {
-    BRIGHT_CYAN: '#66fcf1'
+    BRIGHT_CYAN: '#edf2f4'
 } as const;
 
 export { IconColor };

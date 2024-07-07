@@ -79,9 +79,9 @@ const SignUp = () => {
                     onChange={handlePassword} 
                 />
                 <Input 
-                    className="button auth-page__form-input-submit" 
+                    className="button primary-button auth-page__form-input-submit" 
                     type="submit" 
-                    value="Submit" 
+                    value="Sign Up" 
                 />
             </form>
             <p className="auth-page__sign-suggestion">

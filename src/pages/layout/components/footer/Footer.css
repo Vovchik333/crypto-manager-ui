@@ -5,6 +5,7 @@
     justify-content: center;
     height: 60px;
     border-top: var(--border-color) solid 1px;
+    background-color: var(--secondary-color);
     color: var(--primary-text-color);
 }
 
