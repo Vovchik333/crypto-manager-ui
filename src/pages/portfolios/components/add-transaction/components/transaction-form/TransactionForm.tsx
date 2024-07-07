@@ -40,7 +40,7 @@ const TransactionForm: React.FC<Props> = ({
     const [transaction, setTransaction] = useState<Transaction>({
         type: TransactionType.BUY,
         quantity: 0.00,
-        pricePerCoin: selectedCoin.price,
+        pricePerCoin: selectedCoin.currentPrice,
         createdAt: (new Date()).toDateString()
     });
 
@@ -75,18 +75,12 @@ const TransactionForm: React.FC<Props> = ({
 
         if (!Boolean(asset)) {
             const { name, symbol, image } = selectedCoin;
-            const { quantity, pricePerCoin } = transaction;
 
             await dispatch(createAsset({
                 portfolioId,
                 name,
                 symbol,
                 image,
-                price: quantity * pricePerCoin,
-                avgPrice: selectedCoin.price,
-                currentProfit: quantity * pricePerCoin,
-                invested: quantity * pricePerCoin,
-                holdings: quantity * pricePerCoin,
                 transaction
             }));
         } else {

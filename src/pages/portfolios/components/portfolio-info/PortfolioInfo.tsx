@@ -19,7 +19,7 @@ const PortfolioInfo: React.FC<Props> = ({
 }) => {
     const { name } = portfolio;
     const portfolioAssets = assets.filter(asset => asset.portfolioId === portfolio.id);
-    const portfolioTotalSum = assets.reduce((acc, cur) => acc + (cur.holdings * cur.price), 0);
+    const portfolioTotalSum = assets.reduce((acc, cur) => acc + (cur.holdings * cur.currentPrice), 0);
 
     return (
         <section className="portfolio-info">

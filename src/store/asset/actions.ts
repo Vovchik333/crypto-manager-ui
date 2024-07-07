@@ -5,7 +5,6 @@ import {
     AsyncThunkConfig
 } from "../../common/types/types";
 import { ActionType } from "./common";
-import { AssetIdWithTransactionId } from "../../common/types/entities/entities";
 
 const loadAssets = createAsyncThunk<
     Asset[],
@@ -22,7 +21,7 @@ const loadAssets = createAsyncThunk<
 
 const createAsset = createAsyncThunk<
     AssetWithTransaction,
-    AssetWithTransaction,
+    Partial<AssetWithTransaction>,
     AsyncThunkConfig
 >(
     ActionType.ADD,
@@ -60,8 +59,8 @@ const updateTransaction = createAsyncThunk<
 );
 
 const removeTransaction = createAsyncThunk<
-    AssetIdWithTransactionId,
-    AssetIdWithTransactionId,
+    AssetWithTransaction,
+    AssetWithTransaction,
     AsyncThunkConfig
 >(
     ActionType.REMOVE_TRANSACTION,

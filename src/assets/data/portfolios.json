@@ -2,21 +2,21 @@
     { 
         "id": "jknsdjidue2292n2898n1dn810w", 
         "name": "Main", 
-        "totalSum": 100.0
+        "totalSum": 0
     },
     { 
         "id": "bwebjkbwejcwbiue27282cuby7811ehy", 
         "name": "Binance", 
-        "totalSum": 120.0
+        "totalSum": 0
     },
     { 
         "id": "scdbncluawuiweba873472eg868724e87g7", 
         "name": "Bybit", 
-        "totalSum": 80.0
+        "totalSum": 0
     },
     { 
         "id": "jdsbcnWUWNIONEN829L928N2ion1n92cn1", 
         "name": "OKX", 
-        "totalSum": 200.0
+        "totalSum": 0
     }
 ]

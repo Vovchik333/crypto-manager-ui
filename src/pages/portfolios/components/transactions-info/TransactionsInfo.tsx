@@ -34,7 +34,7 @@ const TransactionsInfo: React.FC<Props> = ({
     const handleOnOpenUpdateTransaction = (id: string) => {
         return (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
             event.stopPropagation();
-            
+
             setUpdateTransactionId(id);
         }
     }
@@ -45,8 +45,8 @@ const TransactionsInfo: React.FC<Props> = ({
 
     const selectedAsset = assets.find(asset => asset.id === selectedAssetId) as Asset;
     const { transactions, ...assetWithoutTransaction } = selectedAsset;
-    const { name, holdings, price } = assetWithoutTransaction;
-    const totalSum = (holdings * price);
+    const { name, holdings, currentPrice } = assetWithoutTransaction;
+    const totalSum = (holdings * currentPrice);
     const transactionForUpdate = transactions.find(transaction => transaction.id === updateTransactionId);
     const assetForUpdate = { 
         ...assetWithoutTransaction, 

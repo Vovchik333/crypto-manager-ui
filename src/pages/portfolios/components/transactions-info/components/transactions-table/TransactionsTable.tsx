@@ -1,5 +1,5 @@
 import { ReactNode, useState } from "react";
-import { Asset } from "../../../../../../common/types/types";
+import { Asset, Transaction } from "../../../../../../common/types/types";
 import { IconButton, InfoBlock, Promt, TableTemplate } from "../../../../../../components/components";
 import { IconName } from "../../../../../../common/enums/enums";
 import { useAppDispatch } from "../../../../../../hooks/hooks";
@@ -42,12 +42,15 @@ const TransactionsTable: React.FC<Props> = ({
 
     const handleOnRemoveTransaction = () => {
         if (transactions.length === 1) {
-            onBackToPortfolio();
             dispatch(deleteAsset(asset.id as string));
+            onBackToPortfolio();
         } else {
+            const { transactions, ...assetWithoutTransactions } = asset;
+            const deleteTransaction = transactions.find(transaction => transaction.id === deleteTransactionId);
+
             dispatch(removeTransaction({
-                assetId: asset.id as string,
-                transactionId: deleteTransactionId as string
+                ...assetWithoutTransactions,
+                transaction: deleteTransaction as Transaction
             }));
         }
     }

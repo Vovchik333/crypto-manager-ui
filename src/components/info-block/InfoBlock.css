@@ -6,12 +6,12 @@
 
 .info-block__header {
     margin: 0;
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--primary-text-color);
 }
 
 .info-block__description {
     margin: 0;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--secondary-text-color);
 }

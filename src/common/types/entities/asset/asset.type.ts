@@ -6,7 +6,7 @@ type Asset = {
     name: string;
     symbol: string;
     image: string;
-    price: number;
+    currentPrice: number;
     avgPrice: number;
     currentProfit: number;
     invested: number;

@@ -26,9 +26,9 @@ const AssetTable: React.FC<Props> = ({
         return `${currentProfit < 0 ? '-' : '+'} $${(Math.abs(currentProfit)).toFixed(2)}`;
     }
     const getPercentageProfit = (asset: Asset): string => {
-        const { currentProfit, holdings, price, invested } = asset;
+        const { currentProfit, holdings, currentPrice, invested } = asset;
 
-        return `${currentProfit < 0 ? '-' : '+'} ${(Math.abs((holdings * price * 100 / invested) - 100)).toFixed(2)} %`;
+        return `${currentProfit < 0 ? '-' : '+'} ${(Math.abs((holdings * currentPrice * 100 / invested) - 100)).toFixed(2)} %`;
     }
 
     return (
@@ -37,17 +37,23 @@ const AssetTable: React.FC<Props> = ({
             columnNames={assetColumnNames}
         >
             {assets.map(asset => {
-                const { name, price, avgPrice, invested, holdings, symbol } = asset;
+                const { name, currentPrice, avgPrice, invested, holdings, symbol } = asset;
                 const assetData: ReactNode[] = [
                     <div className="coin-info-block">
                         <img className="coin-info-block__image" src={asset.image} alt="Coin Image" />
-                        <InfoBlock topRow={symbol.toUpperCase()} bottomRow={name} />
+                        <InfoBlock topRow={symbol} bottomRow={name} />
                     </div>,
-                    `$${price.toFixed(4)}`,
+                    `$${currentPrice.toFixed(4)}`,
                     `${avgPrice.toFixed(4)}`,
-                    <InfoBlock topRow={getUsdProfit(asset)} bottomRow={getPercentageProfit(asset)} />,
+                    <InfoBlock 
+                        topRow={getUsdProfit(asset)} 
+                        bottomRow={getPercentageProfit(asset)} 
+                    />,
                     `$${invested.toFixed(2)}`,
-                    <InfoBlock topRow={`$${(holdings * price).toFixed(2)}`} bottomRow={`${holdings.toFixed(2)} ${symbol}`} />
+                    <InfoBlock 
+                        topRow={`$${(holdings * currentPrice).toFixed(2)}`} 
+                        bottomRow={`${holdings.toFixed(2)} ${symbol}`} 
+                    />
                 ];
 
                 return (
