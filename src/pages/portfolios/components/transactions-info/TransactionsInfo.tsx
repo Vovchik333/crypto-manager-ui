@@ -57,7 +57,7 @@ const TransactionsInfo: React.FC<Props> = ({
 
     return (
         <>
-            <section className="portfolio-info">
+            <section className="transactions-info">
                 <section className="back-section">
                     <div className="back-section__content" onClick={onBackToPortfolio}>
                         <Icon className="icon back-section__icon" name={IconName.BACK} />

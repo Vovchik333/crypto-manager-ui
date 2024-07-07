@@ -5,16 +5,10 @@
 
 .portfolio-preview__content {
     color: var(--secondary-color);
-    cursor: pointer;
-    padding: 10px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     width: 100%;
-}
-
-.portfolio-preview__content:hover {
-    background-color: var(--hover-color);
 }
 
 .portfolio-preview__list-actions {

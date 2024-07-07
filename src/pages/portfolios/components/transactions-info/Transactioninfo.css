@@ -1,10 +1,18 @@
+.transactions-info {
+    width: 100%;
+    min-width: 300px;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
 .back-section {
     padding: 10px 0;
 }
 
 .back-section__content {
     cursor: pointer;
-    color: var(--accent-color);
+    color: var(--primary-text-color);
     width: 55px;
 }
 

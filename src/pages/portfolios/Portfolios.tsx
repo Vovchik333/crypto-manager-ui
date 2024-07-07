@@ -16,7 +16,7 @@ import {
     TransactionsInfo
 } from "./components/components";
 import { Portfolio } from "../../common/types/types";
-import { loadPortfolios } from "../../store/portfolio/actions";
+import { loadPortfolios, updatePortfolio } from "../../store/portfolio/actions";
 import { loadAssets } from "../../store/asset/actions";
 import './Portfolios.css';
 
@@ -77,6 +77,17 @@ const Portfolios: React.FC = () => {
 
         initPortfolios();
     }, []);
+
+    useEffect(() => {
+        if (selectedPortfolio !== undefined) {
+            const totalSum = assets.reduce((acc, cur) => acc + cur.holdings * cur.currentPrice, 0);
+            
+            dispatch(updatePortfolio({
+                ...selectedPortfolio,
+                totalSum
+            }));
+        }
+    }, [assets]);
 
     if (!isPageLoad) {
         return (<Spinner />);

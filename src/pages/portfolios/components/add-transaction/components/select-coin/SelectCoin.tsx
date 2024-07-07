@@ -15,7 +15,7 @@ const SelectCoin: React.FC<Props> = ({
 }) => {
     const [coinName, setCoinName] = useState<string>('');
 
-    const filteredCoins = coins?.filter(coin => `${coin.name} ${coin.symbol}`.toUpperCase().includes(coinName.toUpperCase())) as Coin[];
+    const filteredCoins = coins.filter(coin => `${coin.name} ${coin.symbol}`.toUpperCase().includes(coinName.toUpperCase())) as Coin[];
     
     const handleOnChangeCoinName = (event: ChangeEvent<HTMLInputElement>) => {
         setCoinName(event.target.value);
@@ -35,7 +35,7 @@ const SelectCoin: React.FC<Props> = ({
                         <li 
                             className='coins__item'
                             key={coin.id} 
-                            onClick={onSelectCoin(coin.id)}
+                            onClick={onSelectCoin(coin.id as string)}
                         >
                             <div className='coins__item-content'>
                                 <img className='coins__item-image' src={coin.image} alt="Coin image" />

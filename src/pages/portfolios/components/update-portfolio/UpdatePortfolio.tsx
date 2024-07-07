@@ -53,7 +53,7 @@ const UpdatePortfolio: React.FC<Props> = ({
                     onChange={handleOnChangeName} 
                 />
                 <Button 
-                    className='button update-portfolio__submit-button' 
+                    className='button primary-button update-portfolio__submit-button' 
                     type={ButtonType.SUBMIT}
                 >Update</Button>
             </form>

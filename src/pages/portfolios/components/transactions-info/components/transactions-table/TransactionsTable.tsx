@@ -71,7 +71,11 @@ const TransactionsTable: React.FC<Props> = ({
                     ];
 
                     return (
-                        <tr key={transaction.id} className="table-template__data-row" onClick={onOpenTransactionDetails(transaction.id as string)}>
+                        <tr 
+                            key={transaction.id} 
+                            className="table-template__data-row main-box" 
+                            onClick={onOpenTransactionDetails(transaction.id as string)}
+                        >
                             {transactionsData.map((data, index) => {
                                 return (
                                     <td 

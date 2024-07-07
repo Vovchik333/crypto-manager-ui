@@ -21,7 +21,7 @@ const Stats: React.FC<Props> = ({
             </div>
             <div className="stats__side">
                 <Button 
-                    className="stats__add-transaction-button button" 
+                    className="button secondary-button" 
                     onClick={onOpenAddTransaction}
                 > + Add transaction </Button>
             </div>

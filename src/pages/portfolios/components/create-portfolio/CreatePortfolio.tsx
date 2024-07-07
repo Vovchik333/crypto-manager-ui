@@ -47,7 +47,7 @@ const CreatePortfolio: React.FC<Props> = ({
                     onChange={handleOnChangeName} 
                 />
                 <Button 
-                    className='button create-portfolio__submit-button' 
+                    className='button primary-button create-portfolio__submit-button' 
                     type={ButtonType.SUBMIT}
                 >Create</Button>
             </form>

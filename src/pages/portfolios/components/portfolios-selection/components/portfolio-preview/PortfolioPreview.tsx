@@ -15,7 +15,6 @@ type Props = {
     portfolio: Portfolio;
     showPortfolioActionsId: string; 
     isEditMode: boolean;
-    isOverview?: boolean;
     onClickPreview?: React.MouseEventHandler<HTMLDivElement>;
     onClickActions?: (id: string) => void;
     onOpenUpdatePortfolio?: React.MouseEventHandler<HTMLLIElement>;
@@ -25,7 +24,6 @@ const PortfolioPreview: React.FC<Props> = ({
     portfolio,
     showPortfolioActionsId,
     isEditMode,
-    isOverview = false,
     onClickPreview,
     onClickActions,
     onOpenUpdatePortfolio
@@ -71,7 +69,7 @@ const PortfolioPreview: React.FC<Props> = ({
                 <div className="portfolio-preview__content" onClick={onClickPreview}>
                     <InfoBlock topRow={portfolio.name} bottomRow={`$${portfolio.totalSum}`}/>
                 </div>
-                {(!isOverview && isEditMode) &&
+                {isEditMode && (
                     <div className="portfolio-preview__list-actions">
                         <IconButton className="icon-button" name={IconName.ELLIPSIS} onClick={handleOnClickActions} />
                         {isShowActions &&
@@ -93,7 +91,7 @@ const PortfolioPreview: React.FC<Props> = ({
                             </ul>
                         }
                     </div>
-                }
+                )}
             </div>
             {isDeletePortfolio && (
                 <Promt

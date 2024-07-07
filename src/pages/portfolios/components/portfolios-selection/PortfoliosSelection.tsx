@@ -3,7 +3,8 @@ import { IconName } from "../../../../common/enums/enums";
 import { Portfolio } from "../../../../common/types/types";
 import { 
     Button, 
-    IconButton 
+    IconButton, 
+    InfoBlock
 } from "../../../../components/components";
 import { PortfolioPreview } from "./components/components";
 import './PortfoliosSelection.css';
@@ -39,12 +40,12 @@ const PortfoliosSelection: React.FC<Props> = ({
 
     return (
         <aside className="portfolios-selection">
-            <PortfolioPreview 
-                portfolio={overviewPortfolios as Portfolio}
-                showPortfolioActionsId={showPortfolioActionsId} 
-                isOverview={true} 
-                isEditMode={editPortfolioMode}
-            />
+            <section className="portfolios-selection__overview main-box">
+                <InfoBlock 
+                    topRow={overviewPortfolios.name} 
+                    bottomRow={`$${overviewPortfolios.totalSum}`}
+                />
+            </section>
             <section className="portfolios-selection__count">
                 <span>My portfolios ({portfolios.length})</span>
                 <IconButton 
@@ -58,7 +59,7 @@ const PortfoliosSelection: React.FC<Props> = ({
                     return (
                         <li 
                             key={portfolio.id}
-                            className="portfolios-selection__item"
+                            className="portfolios-selection__item main-box"
                         >
                             <PortfolioPreview 
                                 portfolio={portfolio} 
@@ -73,7 +74,7 @@ const PortfoliosSelection: React.FC<Props> = ({
                 })}
             </ul>
             <Button 
-                className="create-portfolio-button button" 
+                className="button secondary-button create-portfolio-button" 
                 onClick={onOpenCreatePortfolio}
             >+ Create portfolio</Button>
         </aside>

@@ -8,6 +8,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .portfolios-selection__count {
@@ -18,21 +21,22 @@
 }
 
 .portfolios-selection__items {
-    padding: 0;
-    margin: 0;
-    padding-right: 15px;
+    padding-right: 5px;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
     list-style: none;
-    gap: 10px;
+    gap: 5px;
 }
 
 .portfolios-selection__item {
-    height: 100%;
+    cursor: pointer;
+}
+
+.portfolios-selection__item:hover {
+    background-color: var(--hover-color);
 }
 
 .create-portfolio-button {
-    font-size: 1.1rem;
-    font-weight: bold;
+    align-self: center;
 }

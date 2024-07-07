@@ -176,7 +176,7 @@ const TransactionForm: React.FC<Props> = ({
                 <p className="transaction-form__total-price">{`$ ${totalSum}`}</p>
             </div>
             <Button 
-                className='button transaction-form__submit-button' 
+                className='button primary-button transaction-form__submit-button' 
                 type={ButtonType.SUBMIT}
             >Add</Button>
         </form>

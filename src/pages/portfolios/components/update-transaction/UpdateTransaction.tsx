@@ -2,10 +2,10 @@ import { ChangeEvent, useState } from 'react';
 import { ButtonType, InputType } from '../../../../common/enums/enums';
 import { Transaction } from '../../../../common/types/types';
 import { Button, FormTemplate, Input } from '../../../../components/components';
-import '../add-transaction/components/transaction-form/TransactionForm.css';
 import { useAppDispatch } from '../../../../hooks/hooks';
 import { AssetWithTransaction } from '../../../../common/types/entities/entities';
 import { updateTransaction } from '../../../../store/asset/actions';
+import '../add-transaction/components/transaction-form/TransactionForm.css';
 
 type Props = {
     asset: AssetWithTransaction;
@@ -95,7 +95,7 @@ const UpdateTransaction: React.FC<Props> = ({
                     <p className="transaction-form__total-price">{`$ ${totalSum}`}</p>
                 </div>
                 <Button 
-                    className='button transaction-form__submit-button' 
+                    className='button primary-button transaction-form__submit-button' 
                     type={ButtonType.SUBMIT}
                 >Edit</Button>
             </form>
