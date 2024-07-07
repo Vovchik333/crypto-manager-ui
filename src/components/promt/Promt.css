@@ -14,13 +14,6 @@
 
 .promt__buttons {
     display: flex;
+    justify-content: space-between;
     gap: 10px;
-}
-
-.promt__button-cancel {
-    width: 100%;
-}
-
-.promt__button-ok {
-    width: 100%;
 }

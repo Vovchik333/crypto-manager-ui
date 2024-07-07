@@ -13,12 +13,12 @@ const TableTemplate: React.FC<Props> = ({
     children
 }) => {
     return (
-        <section className="table-template">
+        <section className="table-template secondary-box">
             <h3 className="table-template__name">{name}</h3>
             <div className="table-template__wrapper">
                 <table className="table-template__content">
                     <thead className="table-template__head">
-                        <tr className="table-template__header-row">
+                        <tr className="table-template__header-row main-box">
                             {columnNames.map((column, index) => {
                                 return (
                                     <th className="table-template__row-element" key={index}>{column}</th>

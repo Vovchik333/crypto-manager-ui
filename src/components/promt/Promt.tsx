@@ -21,11 +21,11 @@ const Promt: React.FC<Props> = ({
                 <p className="promt__text">{text}</p>
                 <div className="promt__buttons">
                     <Button 
-                        className="promt__button-cancel button"
+                        className="button secondary-button promt__button-cancel"
                         onClick={onCancel}
                     >Cancel</Button>
                     <Button 
-                        className="promt__button-ok button"
+                        className="button primary-button promt__button-ok"
                         onClick={onOk}
                     >Ok</Button>
                 </div>

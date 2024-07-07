@@ -1,11 +1,9 @@
 .table-template {
     width: 100%;
-    min-width: 300px;
-    max-width: 1000px;
 }
 
 .table-template__name {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .table-template__wrapper {
