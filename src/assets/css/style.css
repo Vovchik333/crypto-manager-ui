@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
-    --main-color: #0B0C10;
-    --secondary-color: #1F2833;
-    --accent-color: #66fcf1;
+    --main-color: rgb(33, 42, 49);
+    --secondary-color: #2e3944;
+    --accent-color:  #124e66;
+
     --primary-text-color: #edf2f4;
     --secondary-text-color: #8d99ae;
+
     --hover-color: rgba(255, 255, 255, 0.1);
     --border-color: #C5C6C7;
-    --button-hover-color: rgba(102, 252, 241, 0.75);
-    --button-active-color: rgba(102, 252, 241, 0.5);
+
+    --button-primary-hover-color: rgba(18, 78, 102, 0.75);
+    --button-primary-active-color: rgba(18, 78, 102, 0.5);
+    --button-secondary-hover-color: rgba(33, 42, 49, 0.75);
+    --button-secondary-active-color: rgba(33, 42, 49, 0.5);
 }
 
 * {
@@ -27,6 +32,7 @@ html {
 }
 
 body {
+    color: var(--primary-text-color);
     background-color: var(--main-color);
     font-family: "Roboto", sans-serif;
 }
@@ -40,6 +46,20 @@ body {
     position: relative;
     flex: 1 0 auto;
     margin: 25px;
+}
+
+.main-box {
+    background-color: var(--main-color);
+}
+
+.secondary-box {
+    background-color: var(--secondary-color);
+}
+
+.main-box,
+.secondary-box {
+    padding: 10px;
+    border-radius: 10px;
 }
 
 /* Scrollbar */
