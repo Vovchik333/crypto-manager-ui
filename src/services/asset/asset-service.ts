@@ -64,8 +64,29 @@ class AssetService {
         return asset;
     }
 
-    public async updateTransaction(payload: Partial<AssetWithTransaction>): Promise<AssetWithTransaction> {
-        return payload as AssetWithTransaction;
+    public async updateTransaction(payload: AssetWithTransaction): Promise<AssetWithTransaction> {
+        const { 
+            holdings, 
+            invested, 
+            transaction: {
+                quantity, 
+                pricePerCoin 
+            }
+        } = payload;
+
+        const newHoldings = holdings + quantity;
+        const newInvested = invested + (quantity * pricePerCoin);
+
+        const asset = {
+            ...payload,
+            currentPrice: pricePerCoin,
+            avgPrice: newInvested / newHoldings,
+            invested: newInvested,
+            holdings: newHoldings,
+            currentProfit: newHoldings * pricePerCoin - newInvested,
+        } as AssetWithTransaction;
+
+        return asset;
     }
 
     public async removeTransaction(payload: AssetWithTransaction): Promise<AssetWithTransaction> {

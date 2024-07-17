@@ -26,7 +26,7 @@ const UpdateTransaction: React.FC<Props> = ({
     const totalSumRes = (updatedTransaction.pricePerCoin * updatedTransaction.quantity);
     const totalSum = isNaN(totalSumRes) ? '0.00' : totalSumRes.toFixed(2);
 
-    const handleOnChangeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChangeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
         const quantityValue = parseFloat(event.target.value);
 
         setUpdatedTransaction({
@@ -35,23 +35,23 @@ const UpdateTransaction: React.FC<Props> = ({
         });
     }
 
-    const handleOnChangePricePerCoin = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChangePricePerCoin = (event: ChangeEvent<HTMLInputElement>) => {
         setUpdatedTransaction({
             ...updatedTransaction,
             pricePerCoin: parseFloat(event.target.value)
         });
     }
 
-    const handleOnSubmit = (event: React.FormEvent) => {
+    const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
 
-        const { quantity, pricePerCoin } = updatedTransaction;
         dispatch(updateTransaction({
             ...asset,
+            holdings: asset.holdings - asset.transaction.quantity,
+            invested: asset.invested - (asset.transaction.quantity * asset.transaction.pricePerCoin), 
             transaction: {
                 ...asset.transaction,
-                quantity,
-                pricePerCoin
+                ...updatedTransaction
             }
         }));
         onClose();
@@ -60,7 +60,7 @@ const UpdateTransaction: React.FC<Props> = ({
 
     return (
         <FormTemplate topic='Edit transaction' onClose={onClose}>
-            <form className='transaction-form' onSubmit={handleOnSubmit}>
+            <form className='transaction-form' onSubmit={handleSubmit}>
                 <fieldset className='transaction-form__price-info'>
                     <div className='transaction-form__side'>
                         <label 
@@ -73,7 +73,7 @@ const UpdateTransaction: React.FC<Props> = ({
                             type={InputType.NUMBER} 
                             placeholder="0.00"
                             value={updatedTransaction.quantity}
-                            onChange={handleOnChangeQuantity}
+                            onChange={handleChangeQuantity}
                         />
                     </div>
                     <div className='transaction-form__side'>
@@ -86,7 +86,7 @@ const UpdateTransaction: React.FC<Props> = ({
                             className='input transaction-form__price-info-input' 
                             type={InputType.NUMBER} 
                             value={updatedTransaction.pricePerCoin}
-                            onChange={handleOnChangePricePerCoin}
+                            onChange={handleChangePricePerCoin}
                         />
                     </div>
                 </fieldset>

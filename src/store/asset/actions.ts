@@ -47,7 +47,7 @@ const addTransaction = createAsyncThunk<
 
 const updateTransaction = createAsyncThunk<
     AssetWithTransaction,
-    Partial<AssetWithTransaction>,
+    AssetWithTransaction,
     AsyncThunkConfig
 >(
     ActionType.UPDATE_TRANSACTION,
@@ -64,8 +64,8 @@ const removeTransaction = createAsyncThunk<
     AsyncThunkConfig
 >(
     ActionType.REMOVE_TRANSACTION,
-    async (paylload, { extra: { assetService } }) => {
-        const assetId = assetService.removeTransaction(paylload);
+    async (payiload, { extra: { assetService } }) => {
+        const assetId = assetService.removeTransaction(payiload);
 
         return assetId;
     }
