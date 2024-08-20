@@ -1,5 +1,5 @@
-import { IconName } from "../../common/enums/enums";
-import { Icon } from "../components";
+import { IconName } from "../../common/enums";
+import { Icon } from "..";
 import './Spinner.css';
 
 const Spinner: React.FC = () => {

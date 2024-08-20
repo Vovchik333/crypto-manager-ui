@@ -1,5 +1,5 @@
-import { InputType } from '../../common/enums/enums';
-import { ValueOf } from '../../common/generic/generic';
+import { InputType } from '../../common/enums';
+import { ValueOf } from '../../common/generic';
 import './Input.css';
 
 type Props = {

@@ -1,4 +1,4 @@
-import { IconName } from "../../common/enums/components/components";
+import { IconName } from "../../common/enums";
 import { ValueOf } from "../../common/generic/value-of/value-of.type";
 import { Icon } from "../icon/Icon";
 import './IconButton.css';

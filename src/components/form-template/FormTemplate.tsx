@@ -2,8 +2,8 @@ import { ReactNode, } from 'react';
 import { 
     IconButton,
     Modal
-} from '../components';
-import { IconName } from '../../common/enums/enums';
+} from '..';
+import { IconName } from '../../common/enums';
 import './FormTemplate.css';
 
 type Props = {

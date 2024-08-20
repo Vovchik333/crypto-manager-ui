@@ -1,4 +1,4 @@
-import { Button, Modal } from "../components";
+import { Button, Modal } from "..";
 import './Promt.css';
 
 type Props = {

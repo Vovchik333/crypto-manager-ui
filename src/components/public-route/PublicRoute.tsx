@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
-import { AppRoute } from "../../common/enums/enums";
-import { useAppSelector } from "../../hooks/hooks";
+import { AppRoute } from "../../common/enums";
+import { useAppSelector } from "../../hooks";
 
 type Props = {
     children: ReactNode;

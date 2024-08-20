@@ -4,13 +4,10 @@
     padding: 20px;
 }
 
-.promt__topic {
-    margin-bottom: 20px;
-}
-
+.promt__topic,
 .promt__text {
     margin-bottom: 20px;
-}
+} 
 
 .promt__buttons {
     display: flex;

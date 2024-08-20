@@ -13,7 +13,7 @@ import {
     faChevronRight,
     faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
-import { IconName } from "../../common/enums/components/components";
+import { IconName } from "../../common/enums/components";
 
 const iconNameToSvgIcon = {
     [IconName.BARS]: faBars,

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { ValueOf } from "../../common/generic/generic";
-import { AppRoute, IconName } from "../../common/enums/enums";
-import { Icon } from "../components";
+import { ValueOf } from "../../common/generic";
+import { AppRoute, IconName } from "../../common/enums";
+import { Icon } from "..";
 import './IconLink.css';
 
 type Props = {

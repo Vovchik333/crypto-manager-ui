@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { ValueOf } from "../../common/generic/value-of/value-of.type";
-import { ButtonType } from "../../common/enums/enums";
+import { ButtonType } from "../../common/enums";
 import './Button.css';
 
 type Props = {

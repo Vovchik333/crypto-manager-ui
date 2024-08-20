@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
     IconColor, 
     IconName 
-} from "../../common/enums/components/components";
+} from "../../common/enums";
 import { ValueOf } from "../../common/generic/value-of/value-of.type";
 import { iconNameToSvgIcon } from "./common";
 
