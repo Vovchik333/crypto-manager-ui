@@ -1,5 +1,9 @@
-import { type Asset } from "../entities";
-
-type Coin = Pick<Asset, 'id' | 'name' | 'image' | 'symbol' | 'currentPrice'>;
+type Coin = {
+    id: string;
+    name: string;
+    image: string;
+    symbol: string;
+    currentPrice: number;
+};
 
 export { type Coin };

@@ -1,9 +1,9 @@
-import { TransactionType } from "../../../enums/enums";
-import { ValueOf } from "../../../generic/generic";
+import { TransactionType } from "../../../enums";
+import { ValueOf } from "../../../generic";
 
 type Transaction = {
-    id?: string;
-    assetId?: string;
+    id: string;
+    assetId: string;
     type: ValueOf<typeof TransactionType>;
     pricePerCoin: number;
     quantity: number;

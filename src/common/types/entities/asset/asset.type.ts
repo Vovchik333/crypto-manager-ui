@@ -1,17 +1,13 @@
-import { Transaction } from "../entities";
+import { Coin } from "../coin/coin.type";
 
 type Asset = {
-    id?: string;
+    id: string;
+    coin: Omit<Coin, 'id'>;
     portfolioId: string;
-    name: string;
-    symbol: string;
-    image: string;
-    currentPrice: number;
     avgPrice: number;
     currentProfit: number;
     invested: number;
     holdings: number;
-    transactions: Transaction[];
 };
 
 export { type Asset };

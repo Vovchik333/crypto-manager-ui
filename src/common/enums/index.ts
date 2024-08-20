@@ -1,12 +1,12 @@
 export {
     AppRoute
-} from '../enums/app/app-route';
+} from './app';
 export {
     ButtonType,
     IconColor,
     IconName,
     InputType
-} from './components/components';
+} from './components';
 export {
     TransactionType
-} from './entities/entities'
+} from './entities';
