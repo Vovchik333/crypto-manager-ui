@@ -1,9 +1,9 @@
 import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AppRoute } from "../../common/enums/enums";
-import { useAppDispatch } from "../../hooks/hooks";
+import { AppRoute } from "../../common/enums";
+import { useAppDispatch } from "../../hooks";
 import { signIn } from "../../store/auth/actions";
-import { Input } from "../../components/components";
+import { Input } from "../../components";
 import './auth.css';
 
 const SignIn = () => {

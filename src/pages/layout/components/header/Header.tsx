@@ -1,12 +1,19 @@
 import { 
     useAppDispatch, 
     useAppSelector 
-} from '../../../../hooks/hooks';
-import { IconButton, Input } from '../../../../components/components';
-import { AppRoute, IconName, InputType } from '../../../../common/enums/enums';
+} from '../../../../hooks';
+import { 
+    IconButton, 
+    Input 
+} from '../../../../components';
+import { 
+    AppRoute, 
+    IconName, 
+    InputType 
+} from '../../../../common/enums';
 import { signOut } from '../../../../store/auth/actions';
-import './Header.css';
 import { IconLink } from '../../../../components/icon-link/IconLink';
+import './Header.css';
 
 const Header: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -14,7 +21,7 @@ const Header: React.FC = () => {
 
     const hasUser = Boolean(user);
 
-    const handleOnClickMenu = () => {
+    const handleClickMenu = () => {
         const menuToggle = document.getElementById('menu-toggle') as HTMLInputElement;
         menuToggle.checked = !menuToggle.checked;
     }
@@ -33,14 +40,14 @@ const Header: React.FC = () => {
             <IconButton 
                 className='icon-button' 
                 name={IconName.BARS} 
-                onClick={handleOnClickMenu}
+                onClick={handleClickMenu}
             />
             <nav className='header__menu'>
                 <header className='header__menu-header'>
                     <IconButton 
                         className='icon-button header__close-icon' 
                         name={IconName.XMARK} 
-                        onClick={handleOnClickMenu} 
+                        onClick={handleClickMenu} 
                     />
                 </header>
                 <section className='header__menu-items'>

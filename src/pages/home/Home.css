@@ -5,6 +5,7 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 40px;
 }
 
@@ -12,8 +13,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 70%;
-    max-width: 780px;
+    width: 100%;
+    max-width: 450px;
 }
 
 .home-page__title {
@@ -24,21 +25,19 @@
 
 .home-page__description {
     color: var(--secondary-text-color);
-    font-size: 1.25rem;
-    line-height: 1.625rem;
+    font-size: 1.1rem;
+    max-width: 410px;
 }
 
 .home-page__sign-in-link {
-    width: auto;
+    width: 160px;
     text-decoration: none;
 }
 
 .home-page__image-section {
-    width: 30%;
+    width: 100%;
+    max-width: 400px;
     padding: 10px;
-}
-
-.home-page__image-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;

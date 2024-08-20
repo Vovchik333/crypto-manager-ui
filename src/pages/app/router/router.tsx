@@ -4,7 +4,7 @@ import {
     createBrowserRouter, 
     createRoutesFromElements 
 } from "react-router-dom";
-import { AppRoute } from "../../../common/enums/enums";
+import { AppRoute } from "../../../common/enums";
 import { Home } from "../../home/Home";
 import { Layout } from "../../layout/Layout";
 import { SignUp } from "../../auth/SignUp";
