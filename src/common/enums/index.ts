@@ -2,11 +2,8 @@ export {
     AppRoute
 } from './app';
 export {
-    ButtonType,
-    IconColor,
-    IconName,
-    InputType
-} from './components';
+    ApiPath
+} from './api/api-path.enum';
 export {
     TransactionType
 } from './entities';
