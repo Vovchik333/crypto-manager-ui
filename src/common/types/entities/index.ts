@@ -13,7 +13,8 @@ export {
 export { 
     type User, 
     type UnregisteredUserRequestBody,
-    type RegisteredUserRequestBody
+    type RegisteredUserRequestBody,
+    type UserWithToken
 } from './user';
 export { 
     type Transaction,
