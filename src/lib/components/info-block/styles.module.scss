@@ -1,0 +1,15 @@
+.info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &__header {
+        font-size: 1rem;
+        color: var(--primary-text-color);
+    }
+
+    &__description {
+        font-size: 0.875rem;
+        color: var(--secondary-text-color);
+    }
+}

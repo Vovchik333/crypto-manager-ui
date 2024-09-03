@@ -1,0 +1,14 @@
+.promt {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}

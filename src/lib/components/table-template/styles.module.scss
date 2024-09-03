@@ -1,0 +1,26 @@
+@use '@/assets/styles/mixins.scss' as *;
+
+.table-template {
+    @include secondary-color-box;
+    width: 100%;
+
+    &__name {
+        margin-bottom: 20px;
+    }
+
+    &__wrapper {
+        overflow-x: scroll;
+    }
+
+    &__content {
+        width: 1000px;
+        border-collapse: collapse;
+    }
+
+    &__header-row {
+        @include main-color-box;
+        height: 50px;
+        border-top: var(--border-color) solid 1px;
+        border-bottom: var(--border-color) solid 1px;
+    }
+}

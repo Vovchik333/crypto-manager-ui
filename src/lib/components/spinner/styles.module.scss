@@ -1,0 +1,10 @@
+@use '@/assets/styles/mixins.scss' as *;
+
+.spinner {
+    @include centered-flex;
+
+    &__icon {
+        width: 30px;
+        height: 30px;
+    }
+}
