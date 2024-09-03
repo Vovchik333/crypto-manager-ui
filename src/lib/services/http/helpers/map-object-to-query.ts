@@ -3,7 +3,7 @@ const mapObjectToQuery = (
 ): string => {
     return Object
             .keys(queryObject)
-            .map(key => `${queryObject[key]}&`)
+            .map(key => `${key}=${queryObject[key]}&`)
             .join('')
             .slice(0, -1);
 };
