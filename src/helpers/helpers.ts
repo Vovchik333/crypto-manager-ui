@@ -1,1 +1,0 @@
-export { coinsMapper } from './coin/coin';
