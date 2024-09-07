@@ -1,0 +1,22 @@
+@use '@/assets/styles/mixins.scss' as *;
+
+.footer {
+    flex: 0 0 auto;
+    @include centered-flex;
+    height: 60px;
+    border-top: var(--border-color) solid 1px;
+    background-color: var(--secondary-color);
+    color: var(--primary-text-color);
+
+    &__author-info {
+        width: 239px;
+    }
+
+    &__author-info-link {
+        color: var(--primary-text-color);
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+}
