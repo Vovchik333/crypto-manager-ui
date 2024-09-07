@@ -4,14 +4,14 @@ import {
     createBrowserRouter, 
     createRoutesFromElements 
 } from "react-router-dom";
-import { AppRoute } from "../../../common/enums";
-import { Home } from "../../home/Home";
-import { Layout } from "../../layout/Layout";
-import { SignUp } from "../../auth/SignUp";
-import { SignIn } from "../../auth/SignIn";
-import { PublicRoute } from "../../../components/public-route/PublicRoute";
-import { Portfolios } from "../../portfolios/Portfolios";
-import { PrivateRoute } from "../../../components/private-route/PrivateRoute";
+import { AppRoute } from "@/common/enums";
+import { Home } from "@/pages/home/Home";
+import { Layout } from "@/pages/layout/Layout";
+import { SignUp } from "@/pages/auth/SignUp";
+import { SignIn } from "@/pages/auth/SignIn";
+import { PublicRoute } from "@/lib/components/public-route/PublicRoute";
+import { Portfolios } from "@/pages/portfolios/Portfolios";
+import { PrivateRoute } from "@/lib/components/private-route/PrivateRoute";
 
 const router = createBrowserRouter(
     createRoutesFromElements([
