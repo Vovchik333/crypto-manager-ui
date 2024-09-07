@@ -1,0 +1,20 @@
+@mixin centered-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin box-form {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@mixin main-color-box {
+    @include box-form;
+    background-color: var(--main-color);
+}
+
+@mixin secondary-color-box {
+    @include box-form;
+    background-color: var(--secondary-color);
+}
