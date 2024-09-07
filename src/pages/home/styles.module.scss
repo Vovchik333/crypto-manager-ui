@@ -1,0 +1,47 @@
+@use '@/assets//styles/mixins.scss' as *;
+
+.home-page {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    @include centered-flex;
+    margin: 0 auto;
+    gap: 40px;
+
+    &__description-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 450px;
+    }
+
+    &__title {
+        font-size: 4rem;
+        line-height: 4.4rem;
+        font-weight: 900;
+    }
+
+    &__description {
+        color: var(--secondary-text-color);
+        font-size: 1.1rem;
+        max-width: 410px;
+    }
+
+    &__sign-in-link {
+        width: 160px;
+        text-decoration: none;
+    }
+
+    &__image-section {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
+        @include centered-flex;
+    }
+
+    &__assets-home-image {
+        height: 300px;
+        object-fit: cover;
+    }
+}
