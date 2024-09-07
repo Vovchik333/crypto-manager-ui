@@ -1,7 +1,6 @@
 export { 
     type Asset,
-    type AssetRequestData,
-    type AssetResponseData
+    type AssetRequestData
 } from './asset';
 export { 
     type Coin 

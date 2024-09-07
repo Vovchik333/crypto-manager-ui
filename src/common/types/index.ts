@@ -1,7 +1,6 @@
 export { 
     type Asset,
     type AssetRequestData,
-    type AssetResponseData,
     type Coin,
     type Portfolio,
     type PortfolioRequestData,

@@ -1,8 +1,7 @@
-import { TransactionRequestData } from "../transaction";
 import { Asset } from "./asset.type";
 
-type AssetRequestData = Omit<Asset, 'id' | 'avgPrice' | 'invested' | 'holdings' | 'currentProfit'> & {
-    transaction: Omit<TransactionRequestData, 'assetId'>;
+type AssetRequestData = Pick<Asset, 'portfolioId'> & {
+    coin: string
 };
 
 export { type AssetRequestData };

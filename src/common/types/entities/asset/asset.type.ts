@@ -1,8 +1,8 @@
 import { Coin } from "../coin/coin.type";
 
 type Asset = {
-    id: string;
-    coin: Omit<Coin, 'id'>;
+    _id: string;
+    coin: Coin;
     portfolioId: string;
     avgPrice: number;
     currentProfit: number;
