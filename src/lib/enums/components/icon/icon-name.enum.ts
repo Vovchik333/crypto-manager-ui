@@ -11,7 +11,8 @@ const IconName = {
     DELETE: 'delete',
     SPINNER: 'spinner',
     NEXT: 'next',
-    BACK: 'back'
+    BACK: 'back',
+    USER: 'user'
 } as const;
 
 export { IconName };
