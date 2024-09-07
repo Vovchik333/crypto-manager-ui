@@ -1,73 +1,58 @@
 import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AppRoute } from "../../common/enums";
-import { useAppDispatch } from "../../hooks";
-import { signIn } from "../../store/auth/actions";
-import { Input } from "../../components";
-import './auth.css';
+import { AppRoute } from "@/common/enums";
+import { useAppDispatch } from "@/lib/hooks";
+import { signIn } from "@/store/auth/actions";
+import { Button } from "@/lib/components";
+import { RegisteredUserRequestBody, User } from "@/common/types";
+import { EmailWithPassword } from "./components";
+import styles from './styles.module.scss';
 
 const SignIn = () => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
-    const [signInUser, setSignInUser] = useState({
+    const [signInUser, setSignInUser] = useState<RegisteredUserRequestBody>({
         email: '',
         password: ''
     });
 
-    const handleEmail = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
         setSignInUser({
             ...signInUser,
             email: event.target.value
         });
-    }
-    const handlePassword = (event: ChangeEvent<HTMLInputElement>) => {
+    };
+    
+    const handleChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
         setSignInUser({
             ...signInUser,
             password: event.target.value
         });
-    }
+    };
+
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         
         dispatch(signIn(signInUser));
         navigate(AppRoute.PORTFOLIOS);
-    }
+    };
 
     return (
-        <main className="auth-page">
-            <form className="auth-page__form" method="post" onSubmit={handleSubmit}>
-                <label 
-                    className="auth-page__form-label" 
-                    htmlFor="email"
-                >Email: </label>
-                <Input 
-                    id="email" 
-                    className="input auth-page__form-input" 
-                    type="email" 
-                    name="email" 
-                    value={signInUser.email} 
-                    onChange={handleEmail} 
+        <main className={styles['auth-page']}>
+            <form className={styles['auth-page__form']} method="post" onSubmit={handleSubmit}>
+                <EmailWithPassword 
+                    user={signInUser as User}
+                    onChangeEmail={handleChangeEmail}
+                    onChangePassword={handleChangePassword}
                 />
-                <label 
-                    className="auth-page__form-label" 
-                    htmlFor="password"
-                >Password: </label>
-                <Input 
-                    id="password" 
-                    className="input auth-page__form-input" 
-                    type="password" 
-                    name="password" 
-                    value={signInUser.password} 
-                    onChange={handlePassword} 
-                />
-                <Input 
-                    className="button primary-button auth-page__form-input-submit" 
+                <Button 
+                    className={styles['auth-page__form-input-submit']} 
                     type="submit" 
-                    value="Sign In" 
-                />
+                    isPrimary
+                >Sign In</Button>
             </form>
-            <p className="auth-page__sign-suggestion">
-                Don't have an account? <Link className="auth-page__sign-link" to={AppRoute.SIGN_UP}>Sign Up</Link>
+            <p className={styles['auth-page__sign-suggestion']}>
+                Don't have an account? <Link className={styles['auth-page__sign-link']} to={AppRoute.SIGN_UP}>Sign Up</Link>
             </p>
         </main>
     );

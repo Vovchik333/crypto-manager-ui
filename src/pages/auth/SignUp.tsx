@@ -1,10 +1,12 @@
 import { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AppRoute } from "../../common/enums";
-import { useAppDispatch } from "../../hooks";
-import { signUp } from "../../store/auth/actions";
-import { Input } from "../../components";
-import './auth.css';
+import { AppRoute } from "@/common/enums";
+import { useAppDispatch } from "@/lib/hooks";
+import { signUp } from "@/store/auth/actions";
+import { Button, LabelWithInput } from "@/lib/components";
+import { EmailWithPassword } from "./components";
+import { User } from "@/common/types";
+import styles from './styles.module.scss';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -15,77 +17,57 @@ const SignUp = () => {
         password: ''
     });
 
-    const handleNickname = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleChangeNickname = (event: ChangeEvent<HTMLInputElement>) => {
         setSignUpUser({
             ...signUpUser,
             nickname: event.target.value
         });
-    }
-    const handleEmail = (event: ChangeEvent<HTMLInputElement>) => {
+    };
+
+    const handleChangeEmail = (event: ChangeEvent<HTMLInputElement>) => {
         setSignUpUser({
             ...signUpUser,
             email: event.target.value
         });
-    }
-    const handlePassword = (event: ChangeEvent<HTMLInputElement>) => {
+    };
+
+    const handleChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
         setSignUpUser({
             ...signUpUser,
             password: event.target.value
         });
-    }
+    };
+
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         
         dispatch(signUp(signUpUser));
         navigate(AppRoute.PORTFOLIOS);
-    }
+    };
 
     return (
-        <main className="auth-page">
-            <form className="auth-page__form" method="post" onSubmit={handleSubmit}>
-                <label 
-                    className="auth-page__form-label" 
-                    htmlFor="nickname"
-                >Nickname:</label>
-                <Input 
+        <main className={styles['auth-page']}>
+            <form className={styles['auth-page__form']} method="post" onSubmit={handleSubmit}>
+                <LabelWithInput
                     id="nickname" 
-                    className="input auth-page__form-input" 
                     name="nickname" 
+                    placeholder="Type nickname..."
                     value={signUpUser.nickname} 
-                    onChange={handleNickname} 
+                    onChange={handleChangeNickname} 
+                >Nickname:</LabelWithInput>
+                <EmailWithPassword
+                    user={signUpUser as User}
+                    onChangeEmail={handleChangeEmail}
+                    onChangePassword={handleChangePassword}
                 />
-                <label 
-                    className="auth-page__form-label" 
-                    htmlFor="email"
-                >Email:</label>
-                <Input 
-                    id="email" 
-                    className="input auth-page__form-input" 
-                    type="email" 
-                    name="email" 
-                    value={signUpUser.email} 
-                    onChange={handleEmail} 
-                />
-                <label 
-                    className="auth-page__form-label" 
-                    htmlFor="password"
-                >Password:</label>
-                <Input 
-                    id="password" 
-                    className="input auth-page__form-input" 
-                    type="password" 
-                    name="password" 
-                    value={signUpUser.password} 
-                    onChange={handlePassword} 
-                />
-                <Input 
-                    className="button primary-button auth-page__form-input-submit" 
-                    type="submit" 
-                    value="Sign Up" 
-                />
+                <Button 
+                    className={styles['auth-page__form-input-submit']} 
+                    type="submit"
+                    isPrimary 
+                >Sign Up</Button>
             </form>
-            <p className="auth-page__sign-suggestion">
-                Already have an account? <Link className="auth-page__sign-link" to={AppRoute.SIGN_IN}>Sign In</Link>
+            <p className={styles['auth-page__sign-suggestion']}>
+                Already have an account? <Link className={styles['auth-page__sign-link']} to={AppRoute.SIGN_IN}>Sign In</Link>
             </p>
         </main>
     );

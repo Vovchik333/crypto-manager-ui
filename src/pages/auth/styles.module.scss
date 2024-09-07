@@ -1,0 +1,33 @@
+.auth-page {
+    width: 100%;
+    color: var(--primary-text-color);
+
+    &__form {
+        background-color: var(--secondary-color);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto 30px;
+        width: 100%;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &__form-input-submit {
+        align-self: center;
+    }
+
+    &__sign-suggestion {
+        width: 100%;
+        text-align: center;
+    }
+
+    &__sign-link {
+        color: var(--primary-text-color);
+
+        &:hover {
+            color: var(--accent-color);
+        }
+    }
+}
