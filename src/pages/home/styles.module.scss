@@ -1,11 +1,8 @@
 @use '@/assets//styles/mixins.scss' as *;
 
 .home-page {
-    width: 100%;
-    max-width: 1200px;
     height: 100%;
     @include centered-flex;
-    margin: 0 auto;
     gap: 40px;
 
     &__description-section {
@@ -13,7 +10,8 @@
         flex-direction: column;
         gap: 20px;
         width: 100%;
-        max-width: 450px;
+        min-width: 400px;
+        max-width: 500px;
     }
 
     &__title {
@@ -25,7 +23,6 @@
     &__description {
         color: var(--secondary-text-color);
         font-size: 1.1rem;
-        max-width: 410px;
     }
 
     &__sign-in-link {
@@ -34,14 +31,38 @@
     }
 
     &__image-section {
-        width: 100%;
-        max-width: 400px;
         padding: 10px;
         @include centered-flex;
     }
 
     &__assets-home-image {
-        height: 300px;
-        object-fit: cover;
+        height: auto;
+        width: 350px;
+    }
+
+    @media (max-width: 900px) {
+        &__sign-in-link {
+            align-self: center;
+        }
+
+        &__image-section {
+            display: none;
+        }
+
+        &__description-section {
+            max-width: 600px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        &__title {
+            font-size: 3rem;
+            line-height: 3.4rem;
+            font-weight: 900;
+        }
+
+        &__description-section {
+            min-width: unset;
+        }
     }
 }

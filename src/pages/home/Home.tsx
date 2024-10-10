@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <main className={styles['home-page']}>
             <section className={styles['home-page__description-section']}>
-                <h1 className={styles['home-page__title']}>Meet the most convenient and useful crypto manager</h1>
+                <h1 className={styles['home-page__title']}>Track all your transactions in one app</h1>
                 <p className={styles['home-page__description']}>
                     Gain good investment management experience. 
                     The app has many analytical tools that will 
