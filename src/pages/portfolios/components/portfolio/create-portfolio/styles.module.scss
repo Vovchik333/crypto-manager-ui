@@ -1,0 +1,16 @@
+.create-portfolio-template {
+    width: 100%;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.portfolio-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 250px;
+
+    &__submit-button {
+        align-self: center;
+    }
+}

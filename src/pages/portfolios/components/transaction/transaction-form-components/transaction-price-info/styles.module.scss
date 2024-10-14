@@ -1,0 +1,10 @@
+.transaction-price-info {
+    width: 100%;
+    border: none;
+    display: flex;
+    gap: 10px;
+
+    &__side {
+        width: 50%;
+    }
+}

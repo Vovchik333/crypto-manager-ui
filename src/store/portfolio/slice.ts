@@ -1,13 +1,25 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { Portfolio } from "../../common/types/types";
-import { createPortfolio, deletePortfolio, loadPortfolios, updatePortfolio } from "./actions";
+import { 
+    createSlice, 
+    isAnyOf 
+} from "@reduxjs/toolkit";
+import { Portfolio } from "@/common/types";
+import { 
+    createPortfolio, 
+    deleteAsset, 
+    deletePortfolio, 
+    getPortfolio, 
+    loadPortfolios, 
+    updatePortfolio 
+} from "./actions";
 
 type State = {
     portfolios: Portfolio[];
+    isLoaded: boolean;
 }
 
 const initialState: State = {
-    portfolios: []
+    portfolios: [],
+    isLoaded: false
 }
 
 const portfolioSlice = createSlice({
@@ -16,28 +28,35 @@ const portfolioSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            .addCase(
+                loadPortfolios.pending,
+                (state) => {
+                    state.isLoaded = false;
+                }
+            )
             .addMatcher(
                 isAnyOf(loadPortfolios.fulfilled),
-                (state, actions) => {
-                    state.portfolios = actions.payload;
+                (state, action) => {
+                    state.portfolios = action.payload;
+                    state.isLoaded = true;
                 }
             )
             .addMatcher(
                 isAnyOf(createPortfolio.fulfilled),
-                (state, actions) => {
-                    state.portfolios.push(actions.payload);
+                (state, action) => {
+                    state.portfolios.push(action.payload);
                 }
             )
             .addMatcher(
-                isAnyOf(updatePortfolio.fulfilled),
-                (state, actions) => {
+                isAnyOf(updatePortfolio.fulfilled, getPortfolio.fulfilled, deleteAsset.fulfilled),
+                (state, action) => {
                     const { portfolios } = state;
-                    const index: number = portfolios.findIndex(portfolio => portfolio.id === actions.payload.id);
+                    const index: number = portfolios.findIndex(portfolio => portfolio._id === action.payload._id);
 
                     if (index !== -1) {
                         state.portfolios = [
                             ...portfolios.slice(0, index),
-                            actions.payload,
+                            action.payload,
                             ...portfolios.slice(index + 1, portfolios.length)
                         ];
                     }
@@ -45,9 +64,9 @@ const portfolioSlice = createSlice({
             )
             .addMatcher(
                 isAnyOf(deletePortfolio.fulfilled),
-                (state, actions) => {
+                (state, action) => {
                     const { portfolios } = state;
-                    const index: number = portfolios.findIndex(portfolio => portfolio.id === actions.payload);
+                    const index: number = portfolios.findIndex(portfolio => portfolio._id === action.payload);
 
                     if (index !== -1) {
                         state.portfolios = [

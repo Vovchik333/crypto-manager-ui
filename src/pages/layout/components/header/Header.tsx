@@ -1,5 +1,5 @@
 import { useAppSelector } from '@/lib/hooks';
-import { Menu, UserPreview } from './components';
+import { Logo, Menu, UserPreview } from './components';
 import { User } from '@/common/types';
 import styles from './styles.module.scss';
 
@@ -11,6 +11,7 @@ const Header: React.FC = () => {
     return (
         <header className={styles.header}>
             <Menu hasUser={hasUser} />
+            <Logo className={styles['full-space']}/>
             {hasUser && (
                 <UserPreview user={user as User}/>
             )}

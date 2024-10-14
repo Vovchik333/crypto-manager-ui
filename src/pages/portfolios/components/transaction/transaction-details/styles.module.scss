@@ -1,0 +1,17 @@
+.transaction-details {
+    min-width: 300px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__item-feature {
+        color: var(--secondary-text-color);
+    }
+}

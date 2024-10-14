@@ -1,0 +1,32 @@
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    &__side {
+        &:first-of-type {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    &__image-with-name {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    &__entity-image {
+        height: 30px;
+    }
+
+    &__add-transaction-button {
+        font-weight: bold;
+    }
+}
+

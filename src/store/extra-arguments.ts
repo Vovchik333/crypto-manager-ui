@@ -1,19 +1,22 @@
 import { 
     assetService,
     authService, 
-    portfolioService
-} from "../services/services";
+    portfolioService,
+    transactionService
+} from "@/services";
 
 type ExtraArguments = {
     authService: typeof authService;
     portfolioService: typeof portfolioService;
     assetService: typeof assetService;
+    transactionService: typeof transactionService;
 };
 
 const extraArguments: ExtraArguments = {
     authService,
     portfolioService,
-    assetService
+    assetService,
+    transactionService
 };
 
 export { extraArguments };

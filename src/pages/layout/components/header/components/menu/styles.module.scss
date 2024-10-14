@@ -12,6 +12,10 @@
         z-index: 2;
         overflow: hidden;
     }
+
+    // &__toggle-icon {
+    //     display: none;
+    // }
     
     &__toggle {
         display: none;
@@ -46,5 +50,11 @@
     &__item {
         align-self: start;
         margin-bottom: 5px;
+    }
+
+    @media (max-width: 900px) {
+        &__toggle-icon {
+            display: block;
+        }
     }
 }

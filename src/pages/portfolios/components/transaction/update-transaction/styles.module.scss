@@ -1,0 +1,16 @@
+.transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    &__selected-coin {
+        width: 100%;
+        padding:10px;
+        border: 2px solid var(--border-color);
+        border-radius: 10px;
+    }
+
+    &__submit-button {
+        margin: 0 auto;
+    }
+}

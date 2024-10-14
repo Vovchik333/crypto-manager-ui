@@ -13,7 +13,8 @@
     }
 
     &__content {
-        width: 1000px;
+        width: 100%;
+        min-width: 800px;
         border-collapse: collapse;
     }
 
@@ -22,5 +23,20 @@
         height: 50px;
         border-top: var(--border-color) solid 1px;
         border-bottom: var(--border-color) solid 1px;
+    }
+
+    &__header-data {
+        &:first-child {
+            text-align: left;
+            padding: 0 0 0 10px;
+        }
+    
+        &:last-child {
+            padding: 0 10px 0 0;
+        }
+    
+        &:not(:first-child) {
+            text-align: right;
+        }
     }
 }

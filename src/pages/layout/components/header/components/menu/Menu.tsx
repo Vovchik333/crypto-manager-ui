@@ -1,4 +1,4 @@
-import { IconButton, IconLink } from '@/lib/components';
+import { Icon, IconLink } from '@/lib/components';
 import { IconName, SelectiveInputType } from '@/lib/enums/components';
 import { AppRoute } from '@/common/enums';
 import { useAppDispatch } from '@/lib/hooks';
@@ -14,11 +14,6 @@ const Menu: React.FC<Props> = ({
 }) => {
     const dispatch = useAppDispatch();
 
-    const handleClickMenu = () => {
-        const menuToggle = document.getElementById('menu-toggle') as HTMLInputElement;
-        menuToggle.checked = !menuToggle.checked;
-    }
-
     const handleSignOut = async () => {
         await dispatch(signOut());
     }
@@ -30,17 +25,16 @@ const Menu: React.FC<Props> = ({
                 className={styles['menu__toggle']}
                 type={SelectiveInputType.CHECKBOX} 
             />
-            <IconButton 
-                name={IconName.BARS} 
-                onClick={handleClickMenu}
-            />
+            <label htmlFor="menu-toggle" className={styles['menu__toggle-icon']}>
+                <Icon name={IconName.BARS}/>
+            </label>
             <nav className={styles['menu__content']}>
                 <header className={styles['menu__header']}>
-                    <IconButton 
-                        className={styles['menu__close-icon']} 
-                        name={IconName.XMARK} 
-                        onClick={handleClickMenu} 
-                    />
+                    <label htmlFor="menu-toggle" className={styles['menu__close-icon']} >
+                        <Icon 
+                            name={IconName.XMARK}
+                        />
+                    </label>
                 </header>
                 <section className={styles['menu__items']}>
                     {hasUser ? (

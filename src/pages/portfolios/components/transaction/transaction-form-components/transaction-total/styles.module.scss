@@ -1,0 +1,14 @@
+.transaction-total {
+    padding: 10px;
+    background-color: var(--hover-color);
+    border-radius: 10px;
+
+    &__header {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    &__price {
+        font-size: 18px;
+    }
+}

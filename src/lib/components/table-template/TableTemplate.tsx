@@ -22,7 +22,7 @@ const TableTemplate: React.FC<Props> = ({
                             {columnNames.map((column, index) => {
                                 return (
                                     <th 
-                                        className={styles["table-template__row-element"]} 
+                                        className={styles["table-template__header-data"]} 
                                         key={index}
                                     >{column}</th>
                                 );

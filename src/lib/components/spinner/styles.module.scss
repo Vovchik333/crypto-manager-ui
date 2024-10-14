@@ -1,6 +1,8 @@
 @use '@/assets/styles/mixins.scss' as *;
 
 .spinner {
+    position: fixed;
+    inset: 0;
     @include centered-flex;
 
     &__icon {

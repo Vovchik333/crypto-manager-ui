@@ -1,0 +1,44 @@
+@use '@/assets/styles/mixins.scss' as *;
+
+.portfolios-selection {
+    top: 20px;
+    position: sticky;
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include secondary-color-box;
+
+    &__overview {
+        @include main-color-box;
+    }
+
+    &__count {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__items {
+        padding-right: 5px;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 5px;
+    }
+
+    &__item {
+        cursor: pointer;
+        @include main-color-box;
+
+        &:hover {
+            background-color: var(--hover-color);
+        }
+    }
+}
+
+.create-portfolio-button {
+    align-self: center;
+}

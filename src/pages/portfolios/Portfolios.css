@@ -1,8 +1,0 @@
-.portfolios-page {
-    width: 100%;
-    max-width: 1300px;
-    display: flex;
-    color: var(--primary-text-color);
-    gap: 30px;
-    margin: 0 auto;
-}

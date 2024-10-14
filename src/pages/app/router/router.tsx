@@ -9,9 +9,9 @@ import { Home } from "@/pages/home/Home";
 import { Layout } from "@/pages/layout/Layout";
 import { SignUp } from "@/pages/auth/SignUp";
 import { SignIn } from "@/pages/auth/SignIn";
-import { PublicRoute } from "@/lib/components/public-route/PublicRoute";
+import { PublicRoute } from "@/lib/components/route/public-route/PublicRoute";
 import { Portfolios } from "@/pages/portfolios/Portfolios";
-import { PrivateRoute } from "@/lib/components/private-route/PrivateRoute";
+import { PrivateRoute } from "@/lib/components/route/private-route/PrivateRoute";
 
 const router = createBrowserRouter(
     createRoutesFromElements([

@@ -1,0 +1,26 @@
+@use '@/assets/styles/mixins.scss' as *;
+
+.select-coin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.coins {
+    list-style-type: none;
+    overflow-y: scroll;
+    height: 300px;
+    width: 500px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    &__item {
+        @include main-color-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+}

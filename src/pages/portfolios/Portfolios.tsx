@@ -1,12 +1,13 @@
 import { 
+    useCallback,
     useEffect, 
     useState 
 } from "react";
 import { 
     useAppDispatch, 
     useAppSelector 
-} from "../../hooks/hooks";
-import { Spinner } from "../../components/components";
+} from "@/lib/hooks";
+import { NotFound, Spinner } from "@/lib/components";
 import { 
     CreatePortfolio, 
     UpdatePortfolio,
@@ -14,128 +15,117 @@ import {
     PortfolioInfo,
     PortfoliosSelection,
     TransactionsInfo
-} from "./components/components";
-import { Portfolio } from "../../common/types/types";
-import { loadPortfolios, updatePortfolio } from "../../store/portfolio/actions";
-import { loadAssets } from "../../store/asset/actions";
-import './Portfolios.css';
+} from "./components";
+import { Asset, Portfolio } from "@/common/types";
+import { loadPortfolios } from "@/store/portfolio/actions";
+import styles from './styles.module.scss';
 
 const Portfolios: React.FC = () => {
     const dispatch = useAppDispatch();
-    const { portfolios } = useAppSelector(state => state.portfolio);
-    const { assets } = useAppSelector(state => state.asset);
+    const portfolioState = useAppSelector(state => state.portfolio);
 
-    const [isPageLoad, setIsPageLoad] = useState<boolean>(false);
     const [selectedPortfolioId, setSelectedPortfolioId] = useState<string | null>(null);
     const [updatePortfolioId, setUpdatePortfolioId] = useState<string | null>(null);
     const [isCreatePortfolio, setIsCreatePortfolio] = useState<boolean>(false);
     const [isAddTransaction, setIsAddTransaction] = useState<boolean>(false);
     const [selectedAssetId, setSelectedAssetId] = useState<string | null>(null);
 
-    const handleOnSelectPortfolioId = (id: string) => {
+    const { portfolios } = portfolioState;
+
+    const selectedPortfolio = portfolios.find(portfolio => portfolio._id === selectedPortfolioId) as Portfolio;
+    const portfolioForUpdate = portfolios.find(portfolio => portfolio._id === updatePortfolioId) as Portfolio;
+    const selectedAsset = selectedPortfolio?.assets.find(asset => asset._id === selectedAssetId) as Asset;
+
+    const handleSelectPortfolioId = useCallback((id: string) => {
         return () => setSelectedPortfolioId(id);
-    };
+    }, []);
 
-    const handleOnOpenCreatePortfolio = () => {
-        setIsCreatePortfolio(true);
-    }
+    const handleOpenCreatePortfolio = useCallback(() => {
+        setIsCreatePortfolio(true)
+    }, []);
 
-    const handleOnCloseCreatePortfolio = () => {
+    const handleCloseCreatePortfolio = () => {
         setIsCreatePortfolio(false);
     }
 
-    const handleOnOpenUpdatePortfolio = (id: string) => {
-        return () => setUpdatePortfolioId(id);
-    }
+    const handleOpenUpdatePortfolio = useCallback((id: string) => {
+        setUpdatePortfolioId(id);
+    }, []);
 
-    const handleOnCloseUpdatePortfolio = () => {
-        setUpdatePortfolioId(null);
-    }
+    const handleCloseUpdatePortfolio = () => setUpdatePortfolioId(null);
 
-    const handleOnOpenAddTransaction = () => {
-        setIsAddTransaction(true);
-    }
+    const handleOpenAddTransaction = useCallback(() => {
+        setIsAddTransaction(true)
+    }, []);
 
-    const handleOnCloseAddTransaction = () => {
+    const handleCloseAddTransaction = () => {
         setIsAddTransaction(false);
-    }
+    };
 
-    const handleOnSelectAssetId = (value: string | null) => {
-        return () => setSelectedAssetId(value);
-    }
+    const handleSelectAssetId = useCallback((id: string | null) => {
+        setSelectedAssetId(id);
+    }, []);
 
-    const selectedPortfolio = portfolios.find(portfolio => portfolio.id === selectedPortfolioId) as Portfolio;
-    const portfolioForUpdate = portfolios.find(portfolio => portfolio.id === updatePortfolioId) as Portfolio;
-
-    useEffect(() => {
-        const initPortfolios = async () => {
-            await dispatch(loadPortfolios());   
-            await dispatch(loadAssets());  
-            setSelectedPortfolioId(portfolios[0].id as string);
-            setIsPageLoad(true);
-        }
-
-        initPortfolios();
+    const handleBackToPortfolio = useCallback(() => {
+        setSelectedAssetId(null)
     }, []);
 
     useEffect(() => {
-        if (selectedPortfolio !== undefined) {
-            const totalSum = assets.reduce((acc, cur) => acc + cur.holdings * cur.currentPrice, 0);
-            
-            dispatch(updatePortfolio({
-                ...selectedPortfolio,
-                totalSum
-            }));
+        if (portfolios.length > 0 && selectedPortfolioId === null) {
+            setSelectedPortfolioId(portfolios[0]._id);
         }
-    }, [assets]);
+    }, [portfolioState.portfolios]);
 
-    if (!isPageLoad) {
-        return (<Spinner />);
+    useEffect(() => {
+        dispatch(loadPortfolios());
+    }, []);
+
+    if (!portfolioState.isLoaded) {
+        return <Spinner />;
     }
 
     return (
         <>
-            <main className="portfolios-page">
+            <main className={styles['portfolios-page']}>
                 <PortfoliosSelection 
                     portfolios={portfolios}
-                    onOpenCreatePortfolio={handleOnOpenCreatePortfolio}
-                    onOpenUpdatePortfolio={handleOnOpenUpdatePortfolio}
-                    onSelectPortfolioId={handleOnSelectPortfolioId}
+                    onOpenCreatePortfolio={handleOpenCreatePortfolio}
+                    onOpenUpdatePortfolio={handleOpenUpdatePortfolio}
+                    onSelectPortfolioId={handleSelectPortfolioId}
                 />
-                {Boolean(selectedPortfolio) && (
+                {Boolean(selectedPortfolio) ? (
                     (selectedAssetId === null) ? (
                         <PortfolioInfo 
                             portfolio={selectedPortfolio} 
-                            assets={assets}
-                            onOpenAddTransaction={handleOnOpenAddTransaction}
-                            onSelectAssetId={handleOnSelectAssetId}
+                            onOpenAddTransaction={handleOpenAddTransaction}
+                            onSelectAssetId={handleSelectAssetId}
                         />
                     ) : (
                         <TransactionsInfo 
-                            assets={assets} 
-                            selectedAssetId={selectedAssetId}
-                            onOpenAddTransaction={handleOnOpenAddTransaction}
-                            onBackToPortfolio={handleOnSelectAssetId(null)}
+                            asset={selectedAsset}
+                            onOpenAddTransaction={handleOpenAddTransaction}
+                            onBackToPortfolio={handleBackToPortfolio}
                         />
                     )
+                ) : (
+                    <NotFound>Portfolios not found.</NotFound>
                 )}
             </main>
             {isCreatePortfolio && (
                 <CreatePortfolio 
-                    onClose={handleOnCloseCreatePortfolio}
+                    onClose={handleCloseCreatePortfolio}
                 />
             )}
             {Boolean(portfolioForUpdate) && (
                 <UpdatePortfolio 
                     portfolio={portfolioForUpdate}  
-                    onClose={handleOnCloseUpdatePortfolio}
+                    onClose={handleCloseUpdatePortfolio}
                 />
             )}
             {isAddTransaction && (
                 <AddTransaction 
-                    portfolioId={selectedPortfolioId as string}
-                    assets={assets}
-                    onClose={handleOnCloseAddTransaction} 
+                    portfolio={selectedPortfolio}
+                    onClose={handleCloseAddTransaction} 
                 />
             )}
         </>
